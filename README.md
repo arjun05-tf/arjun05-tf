@@ -1,16 +1,16 @@
-## Hi there 👋
+# Hi there 👋 I'm Arjun Vinod Patil.
 
-<!--
-**arjun05-tf/arjun05-tf** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+🎓 CS Student | 🐍 Learning Python (CS50P) | 💻 Building fun projects
 
-Here are some ideas to get you started:
+### 📌 What I'm working on
+- 🚀 CS50P Assignments
+- 🧠 Python Projects for Beginners
+- 📚 Learning Git and GitHub basics
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### 🌱 Skills I'm growing
+- Python, Git, Markdown
+- Algorithms, CLI apps
+- Planning to learn Web Development (HTML/CSS/JS)
+
+### 📬 Connect with me
+[LinkedIn](https://www.linkedin.com/in/arjun-patil-982266310/) • [Email](arjunpatil02814@gmail.com)
