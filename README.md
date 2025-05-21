@@ -1,13 +1,6 @@
 # 💫 About Me:
 ### 🖤 About Me  
-- 💻 CS undergrad in Germany, originally from India  
-- 📚 Currently grinding through Harvard's CS50P and CS50x  
-- 🐍 Python is my go-to, C is my current battle  
-- 🧠 Obsessed with building, breaking, and learning in silence  
-- 🌑 Dark mode isn't a choice, it's a lifestyle  
-- ⚔️ Terminal is home, Git is my sword, and memes are armor  
-- 🚧 Working on projects that I’ll probably never show anyone... until they’re perfect  
-- 🔥 I code like I’m the protagonist in a glitchy simulation  
+-Learner 
 
 ---
 
