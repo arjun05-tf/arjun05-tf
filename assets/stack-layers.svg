@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" role="img" aria-labelledby="t d">
+<title id="t">Stack as layers</title><desc id="d">Seven isometric layers from AI and retrieval down through application, automation, streaming, storage and operations, with a request descending through them.</desc>
+<defs>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+  <path d="M40 0H0V40" fill="none" stroke="#141a24" stroke-width="1"/>
+</pattern>
+<radialGradient id="vig" cx="50%" cy="45%" r="70%">
+  <stop offset="0%" stop-color="#121826" stop-opacity="0.9"/>
+  <stop offset="100%" stop-color="#0b0e14" stop-opacity="1"/>
+</radialGradient>
+<filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="6" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+</defs>
+<rect width="1000" height="560" fill="#0b0e14"/>
+<rect width="1000" height="560" fill="url(#grid)" opacity="0.55"/>
+<rect width="1000" height="560" fill="url(#vig)" opacity="0.75"/>
+<rect x="0.5" y="0.5" width="999" height="559" fill="none" stroke="#1b2230"/>
+<text x="28" y="34" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="10" fill="#5c6570" text-anchor="start" font-weight="400" letter-spacing="0.22em" opacity="1.0">STACK</text>
+<text x="972" y="34" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9.5" fill="#5c6570" text-anchor="end" font-weight="400" letter-spacing="0.1em" opacity="1.0">one request, top to bottom</text>
+<polygon points="100,80 500,124 500,140 100,96" fill="#080b11" stroke="#1b2230" stroke-width="1"/>
+<polygon points="900,80 500,124 500,140 900,96" fill="#0a0e16" stroke="#1b2230" stroke-width="1"/>
+<polygon points="100,80 500,36 900,80 500,124" fill="#10151f" stroke="#1b2230" stroke-width="1"/>
+<polygon points="100,80 500,36 900,80 500,124" fill="#a78bfa" opacity="0.05"/>
+<text x="304" y="79" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#e6edf3" text-anchor="start" font-weight="700" letter-spacing="0.16em" opacity="1.0">AI / LLM</text>
+<text x="304" y="96" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400" letter-spacing="0.03em" opacity="1.0">Claude · OpenAI · structured output · prompt versions</text>
+<circle cx="712" cy="86" r="3.7" fill="#0e121a" stroke="#a78bfa" stroke-width="1.4"/>
+<circle cx="712" cy="86" r="1.8" fill="#a78bfa"><animate attributeName="opacity" values="0.45;1;0.45" dur="4.4s" begin="-0.00s" repeatCount="indefinite"/></circle>
+<line x1="712.0" y1="95.0" x2="712.0" y2="143.0" stroke="#a78bfa" stroke-width="0.9" opacity="0.25"/>
+<polygon points="100,146 500,190 500,206 100,162" fill="#080b11" stroke="#1b2230" stroke-width="1"/>
+<polygon points="900,146 500,190 500,206 900,162" fill="#0a0e16" stroke="#1b2230" stroke-width="1"/>
+<polygon points="100,146 500,102 900,146 500,190" fill="#10151f" stroke="#1b2230" stroke-width="1"/>
+<polygon points="100,146 500,102 900,146 500,190" fill="#a78bfa" opacity="0.05"/>
+<text x="304" y="145" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#e6edf3" text-anchor="start" font-weight="700" letter-spacing="0.16em" opacity="1.0">RETRIEVAL</text>
+<text x="304" y="162" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400" letter-spacing="0.03em" opacity="1.0">multilingual-e5 · Qdrant · cross-encoder rerank</text>
+<circle cx="712" cy="152" r="3.7" fill="#0e121a" stroke="#a78bfa" stroke-width="1.4"/>
+<circle cx="712" cy="152" r="1.8" fill="#a78bfa"><animate attributeName="opacity" values="0.45;1;0.45" dur="4.9s" begin="-0.90s" repeatCount="indefinite"/></circle>
+<line x1="712.0" y1="161.0" x2="712.0" y2="209.0" stroke="#a78bfa" stroke-width="0.9" opacity="0.25"/>
+<polygon points="100,212 500,256 500,272 100,228" fill="#080b11" stroke="#1b2230" stroke-width="1"/>
+<polygon points="900,212 500,256 500,272 900,228" fill="#0a0e16" stroke="#1b2230" stroke-width="1"/>
+<polygon points="100,212 500,168 900,212 500,256" fill="#10151f" stroke="#1b2230" stroke-width="1"/>
+<polygon points="100,212 500,168 900,212 500,256" fill="#38bdf8" opacity="0.05"/>
+<text x="304" y="211" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#e6edf3" text-anchor="start" font-weight="700" letter-spacing="0.16em" opacity="1.0">APPLICATION</text>
+<text x="304" y="228" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400" letter-spacing="0.03em" opacity="1.0">FastAPI · Pydantic · Next.js console</text>
+<circle cx="712" cy="218" r="3.7" fill="#0e121a" stroke="#38bdf8" stroke-width="1.4"/>
+<circle cx="712" cy="218" r="1.8" fill="#38bdf8"><animate attributeName="opacity" values="0.45;1;0.45" dur="5.4s" begin="-1.80s" repeatCount="indefinite"/></circle>
+<line x1="712.0" y1="227.0" x2="712.0" y2="275.0" stroke="#38bdf8" stroke-width="0.9" opacity="0.25"/>
+<polygon points="100,278 500,322 500,338 100,294" fill="#080b11" stroke="#1b2230" stroke-width="1"/>
+<polygon points="900,278 500,322 500,338 900,294" fill="#0a0e16" stroke="#1b2230" stroke-width="1"/>
+<polygon points="100,278 500,234 900,278 500,322" fill="#10151f" stroke="#1b2230" stroke-width="1"/>
+<polygon points="100,278 500,234 900,278 500,322" fill="#38bdf8" opacity="0.05"/>
+<text x="304" y="277" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#e6edf3" text-anchor="start" font-weight="700" letter-spacing="0.16em" opacity="1.0">AUTOMATION</text>
+<text x="304" y="294" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400" letter-spacing="0.03em" opacity="1.0">n8n · HMAC webhooks · retries · CRM sync</text>
+<circle cx="712" cy="284" r="3.7" fill="#0e121a" stroke="#38bdf8" stroke-width="1.4"/>
+<circle cx="712" cy="284" r="1.8" fill="#38bdf8"><animate attributeName="opacity" values="0.45;1;0.45" dur="5.9s" begin="-2.70s" repeatCount="indefinite"/></circle>
+<line x1="712.0" y1="293.0" x2="712.0" y2="341.0" stroke="#38bdf8" stroke-width="0.9" opacity="0.25"/>
+<polygon points="100,344 500,388 500,404 100,360" fill="#080b11" stroke="#1b2230" stroke-width="1"/>
+<polygon points="900,344 500,388 500,404 900,360" fill="#0a0e16" stroke="#1b2230" stroke-width="1"/>
+<polygon points="100,344 500,300 900,344 500,388" fill="#10151f" stroke="#1b2230" stroke-width="1"/>
+<polygon points="100,344 500,300 900,344 500,388" fill="#38bdf8" opacity="0.05"/>
+<text x="304" y="343" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#e6edf3" text-anchor="start" font-weight="700" letter-spacing="0.16em" opacity="1.0">STREAMING</text>
+<text x="304" y="360" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400" letter-spacing="0.03em" opacity="1.0">protobuf · Redpanda · Flink · event time</text>
+<circle cx="712" cy="350" r="3.7" fill="#0e121a" stroke="#38bdf8" stroke-width="1.4"/>
+<circle cx="712" cy="350" r="1.8" fill="#38bdf8"><animate attributeName="opacity" values="0.45;1;0.45" dur="6.4s" begin="-3.60s" repeatCount="indefinite"/></circle>
+<line x1="712.0" y1="359.0" x2="712.0" y2="407.0" stroke="#38bdf8" stroke-width="0.9" opacity="0.25"/>
+<polygon points="100,410 500,454 500,470 100,426" fill="#080b11" stroke="#1b2230" stroke-width="1"/>
+<polygon points="900,410 500,454 500,470 900,426" fill="#0a0e16" stroke="#1b2230" stroke-width="1"/>
+<polygon points="100,410 500,366 900,410 500,454" fill="#10151f" stroke="#1b2230" stroke-width="1"/>
+<polygon points="100,410 500,366 900,410 500,454" fill="#38bdf8" opacity="0.05"/>
+<text x="304" y="409" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#e6edf3" text-anchor="start" font-weight="700" letter-spacing="0.16em" opacity="1.0">STORAGE</text>
+<text x="304" y="426" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400" letter-spacing="0.03em" opacity="1.0">PostgreSQL · TimescaleDB · Qdrant</text>
+<circle cx="712" cy="416" r="3.7" fill="#0e121a" stroke="#38bdf8" stroke-width="1.4"/>
+<circle cx="712" cy="416" r="1.8" fill="#38bdf8"><animate attributeName="opacity" values="0.45;1;0.45" dur="6.9s" begin="-4.50s" repeatCount="indefinite"/></circle>
+<line x1="712.0" y1="425.0" x2="712.0" y2="473.0" stroke="#38bdf8" stroke-width="0.9" opacity="0.25"/>
+<polygon points="100,476 500,520 500,536 100,492" fill="#080b11" stroke="#1b2230" stroke-width="1"/>
+<polygon points="900,476 500,520 500,536 900,492" fill="#0a0e16" stroke="#1b2230" stroke-width="1"/>
+<polygon points="100,476 500,432 900,476 500,520" fill="#10151f" stroke="#1b2230" stroke-width="1"/>
+<polygon points="100,476 500,432 900,476 500,520" fill="#38bdf8" opacity="0.05"/>
+<text x="304" y="475" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11" fill="#e6edf3" text-anchor="start" font-weight="700" letter-spacing="0.16em" opacity="1.0">OPERATIONS</text>
+<text x="304" y="492" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9.5" fill="#8b949e" text-anchor="start" font-weight="400" letter-spacing="0.03em" opacity="1.0">Docker · GitHub Actions · MLflow · Grafana</text>
+<circle cx="712" cy="482" r="3.7" fill="#0e121a" stroke="#38bdf8" stroke-width="1.4"/>
+<circle cx="712" cy="482" r="1.8" fill="#38bdf8"><animate attributeName="opacity" values="0.45;1;0.45" dur="7.4s" begin="-5.40s" repeatCount="indefinite"/></circle>
+<circle r="2.4" fill="#38bdf8" opacity="0.9"><animateMotion path="M712 86 L712 482" dur="7.0s" begin="-0.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0.9;0" dur="7.0s" begin="-0.0s" repeatCount="indefinite"/></circle>
+<circle r="2.0" fill="#38bdf8" opacity="0.9"><animateMotion path="M712 86 L712 482" dur="9.5s" begin="-2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0.9;0" dur="9.5s" begin="-2.4s" repeatCount="indefinite"/></circle>
+<circle r="1.6" fill="#38bdf8" opacity="0.9"><animateMotion path="M712 86 L712 482" dur="12.0s" begin="-4.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0.9;0" dur="12.0s" begin="-4.8s" repeatCount="indefinite"/></circle>
+</svg>

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 250" width="1000" height="250" role="img" aria-labelledby="t d">
+<title id="t">SignalOps AI pipeline</title><desc id="d">Lead intake, research, security signals, qualification, model draft, grounding validation, human approval and CRM sync.</desc>
+<defs>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+  <path d="M40 0H0V40" fill="none" stroke="#141a24" stroke-width="1"/>
+</pattern>
+<radialGradient id="vig" cx="50%" cy="45%" r="70%">
+  <stop offset="0%" stop-color="#121826" stop-opacity="0.9"/>
+  <stop offset="100%" stop-color="#0b0e14" stop-opacity="1"/>
+</radialGradient>
+<filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="6" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+</defs>
+<rect width="1000" height="250" fill="#0b0e14"/>
+<rect width="1000" height="250" fill="url(#grid)" opacity="0.55"/>
+<rect width="1000" height="250" fill="url(#vig)" opacity="0.75"/>
+<rect x="0.5" y="0.5" width="999" height="249" fill="none" stroke="#1b2230"/>
+<text x="28" y="34" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="10" fill="#5c6570" text-anchor="start" font-weight="400" letter-spacing="0.22em" opacity="1.0">SIGNALOPS AI · LEAD TO CRM</text>
+<text x="972" y="34" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9.5" fill="#5c6570" text-anchor="end" font-weight="400" letter-spacing="0.1em" opacity="1.0">deterministic code owns every write</text>
+<rect x="30.0" y="92" width="107.0" height="74" rx="3" fill="#0e121a" stroke="#1b2230" stroke-width="1" opacity="1.0"/>
+<rect x="30.0" y="92" width="107.0" height="1.6" fill="#38bdf8" opacity="0.35"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="4.5s" repeatCount="indefinite"/></rect>
+<text x="83.5" y="122" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11.5" fill="#e6edf3" text-anchor="middle" font-weight="700" letter-spacing="0.1em" opacity="1.0">LEAD</text>
+<text x="83.5" y="154" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400" letter-spacing="0.02em" opacity="1.0">webhook, HMAC</text>
+<line x1="137.0" y1="129.0" x2="149.0" y2="129.0" stroke="#38bdf8" stroke-width="1.0" opacity="0.45"/>
+<path d="M145.0 126.0 L149.0 129.0 L145.0 132.0" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+<rect x="149.0" y="92" width="107.0" height="74" rx="3" fill="#0e121a" stroke="#1b2230" stroke-width="1" opacity="1.0"/>
+<rect x="149.0" y="92" width="107.0" height="1.6" fill="#38bdf8" opacity="0.35"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="4.9s" repeatCount="indefinite"/></rect>
+<text x="202.5" y="122" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11.5" fill="#e6edf3" text-anchor="middle" font-weight="700" letter-spacing="0.1em" opacity="1.0">RESEARCH</text>
+<text x="202.5" y="154" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400" letter-spacing="0.02em" opacity="1.0">enrichment</text>
+<line x1="256.0" y1="129.0" x2="268.0" y2="129.0" stroke="#38bdf8" stroke-width="1.0" opacity="0.45"/>
+<path d="M264.0 126.0 L268.0 129.0 L264.0 132.0" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+<rect x="268.0" y="92" width="107.0" height="74" rx="3" fill="#0e121a" stroke="#1b2230" stroke-width="1" opacity="1.0"/>
+<rect x="268.0" y="92" width="107.0" height="1.6" fill="#38bdf8" opacity="0.35"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="5.3s" repeatCount="indefinite"/></rect>
+<text x="321.5" y="114" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11.5" fill="#e6edf3" text-anchor="middle" font-weight="700" letter-spacing="0.1em" opacity="1.0">SECURITY</text>
+<text x="321.5" y="130" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11.5" fill="#e6edf3" text-anchor="middle" font-weight="700" letter-spacing="0.1em" opacity="1.0">SIGNALS</text>
+<text x="321.5" y="154" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400" letter-spacing="0.02em" opacity="1.0">23 signal keys</text>
+<line x1="375.0" y1="129.0" x2="387.0" y2="129.0" stroke="#38bdf8" stroke-width="1.0" opacity="0.45"/>
+<path d="M383.0 126.0 L387.0 129.0 L383.0 132.0" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+<rect x="387.0" y="92" width="107.0" height="74" rx="3" fill="#0e121a" stroke="#1b2230" stroke-width="1" opacity="1.0"/>
+<rect x="387.0" y="92" width="107.0" height="1.6" fill="#38bdf8" opacity="0.35"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="5.7s" repeatCount="indefinite"/></rect>
+<text x="440.5" y="122" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11.5" fill="#e6edf3" text-anchor="middle" font-weight="700" letter-spacing="0.1em" opacity="1.0">QUALIFY</text>
+<text x="440.5" y="154" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400" letter-spacing="0.02em" opacity="1.0">rules + model</text>
+<line x1="494.0" y1="129.0" x2="506.0" y2="129.0" stroke="#38bdf8" stroke-width="1.0" opacity="0.45"/>
+<path d="M502.0 126.0 L506.0 129.0 L502.0 132.0" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+<rect x="506.0" y="92" width="107.0" height="74" rx="3" fill="#0e121a" stroke="#1b2230" stroke-width="1" opacity="1.0"/>
+<rect x="506.0" y="92" width="107.0" height="1.6" fill="#38bdf8" opacity="0.35"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="6.1s" repeatCount="indefinite"/></rect>
+<text x="559.5" y="114" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11.5" fill="#e6edf3" text-anchor="middle" font-weight="700" letter-spacing="0.1em" opacity="1.0">LLM</text>
+<text x="559.5" y="130" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11.5" fill="#e6edf3" text-anchor="middle" font-weight="700" letter-spacing="0.1em" opacity="1.0">DRAFT</text>
+<text x="559.5" y="154" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400" letter-spacing="0.02em" opacity="1.0">German outreach</text>
+<line x1="613.0" y1="129.0" x2="625.0" y2="129.0" stroke="#38bdf8" stroke-width="1.0" opacity="0.45"/>
+<path d="M621.0 126.0 L625.0 129.0 L621.0 132.0" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+<rect x="625.0" y="92" width="107.0" height="74" rx="3" fill="#0e121a" stroke="#1b2230" stroke-width="1" opacity="1.0"/>
+<rect x="625.0" y="92" width="107.0" height="1.6" fill="#38bdf8" opacity="0.35"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="6.5s" repeatCount="indefinite"/></rect>
+<text x="678.5" y="122" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11.5" fill="#e6edf3" text-anchor="middle" font-weight="700" letter-spacing="0.1em" opacity="1.0">GROUNDING</text>
+<text x="678.5" y="154" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400" letter-spacing="0.02em" opacity="1.0">claim ↔ evidence</text>
+<line x1="732.0" y1="129.0" x2="744.0" y2="129.0" stroke="#38bdf8" stroke-width="1.0" opacity="0.45"/>
+<path d="M740.0 126.0 L744.0 129.0 L740.0 132.0" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+<rect x="744.0" y="92" width="107.0" height="74" rx="3" fill="#0e121a" stroke="#1b2230" stroke-width="1" opacity="1.0"/>
+<rect x="744.0" y="92" width="107.0" height="1.6" fill="#38bdf8" opacity="0.35"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="6.9s" repeatCount="indefinite"/></rect>
+<text x="797.5" y="114" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11.5" fill="#e6edf3" text-anchor="middle" font-weight="700" letter-spacing="0.1em" opacity="1.0">HUMAN</text>
+<text x="797.5" y="130" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11.5" fill="#e6edf3" text-anchor="middle" font-weight="700" letter-spacing="0.1em" opacity="1.0">APPROVAL</text>
+<text x="797.5" y="154" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400" letter-spacing="0.02em" opacity="1.0">nothing auto-sent</text>
+<line x1="851.0" y1="129.0" x2="863.0" y2="129.0" stroke="#38bdf8" stroke-width="1.0" opacity="0.45"/>
+<path d="M859.0 126.0 L863.0 129.0 L859.0 132.0" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+<rect x="863.0" y="92" width="107.0" height="74" rx="3" fill="#0e121a" stroke="#1b2230" stroke-width="1" opacity="1.0"/>
+<rect x="863.0" y="92" width="107.0" height="1.6" fill="#38bdf8" opacity="0.35"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="7.300000000000001s" repeatCount="indefinite"/></rect>
+<text x="916.5" y="122" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11.5" fill="#e6edf3" text-anchor="middle" font-weight="700" letter-spacing="0.1em" opacity="1.0">CRM</text>
+<text x="916.5" y="154" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400" letter-spacing="0.02em" opacity="1.0">sync + follow-up</text>
+<line x1="30" y1="198" x2="970" y2="198" stroke="#1b2230" stroke-width="1"/>
+<line x1="83.5" y1="166.0" x2="83.5" y2="198.0" stroke="#1b2230" stroke-width="0.8" opacity="0.7"/>
+<circle cx="83.5" cy="198" r="2.2" fill="#0e121a" stroke="#38bdf8" stroke-width="1" opacity="0.7"/>
+<line x1="202.5" y1="166.0" x2="202.5" y2="198.0" stroke="#1b2230" stroke-width="0.8" opacity="0.7"/>
+<circle cx="202.5" cy="198" r="2.2" fill="#0e121a" stroke="#38bdf8" stroke-width="1" opacity="0.7"/>
+<line x1="321.5" y1="166.0" x2="321.5" y2="198.0" stroke="#1b2230" stroke-width="0.8" opacity="0.7"/>
+<circle cx="321.5" cy="198" r="2.2" fill="#0e121a" stroke="#38bdf8" stroke-width="1" opacity="0.7"/>
+<line x1="440.5" y1="166.0" x2="440.5" y2="198.0" stroke="#1b2230" stroke-width="0.8" opacity="0.7"/>
+<circle cx="440.5" cy="198" r="2.2" fill="#0e121a" stroke="#38bdf8" stroke-width="1" opacity="0.7"/>
+<line x1="559.5" y1="166.0" x2="559.5" y2="198.0" stroke="#1b2230" stroke-width="0.8" opacity="0.7"/>
+<circle cx="559.5" cy="198" r="2.2" fill="#0e121a" stroke="#38bdf8" stroke-width="1" opacity="0.7"/>
+<line x1="678.5" y1="166.0" x2="678.5" y2="198.0" stroke="#1b2230" stroke-width="0.8" opacity="0.7"/>
+<circle cx="678.5" cy="198" r="2.2" fill="#0e121a" stroke="#38bdf8" stroke-width="1" opacity="0.7"/>
+<line x1="797.5" y1="166.0" x2="797.5" y2="198.0" stroke="#1b2230" stroke-width="0.8" opacity="0.7"/>
+<circle cx="797.5" cy="198" r="2.2" fill="#0e121a" stroke="#38bdf8" stroke-width="1" opacity="0.7"/>
+<line x1="916.5" y1="166.0" x2="916.5" y2="198.0" stroke="#1b2230" stroke-width="0.8" opacity="0.7"/>
+<circle cx="916.5" cy="198" r="2.2" fill="#0e121a" stroke="#38bdf8" stroke-width="1" opacity="0.7"/>
+<circle r="3.0" fill="#38bdf8" opacity="0.9"><animateMotion path="M30 198 L970 198" dur="9.0s" begin="-0.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.95;0.95;0" dur="9.0s" begin="-0.0s" repeatCount="indefinite"/></circle>
+<circle r="2.6" fill="#38bdf8" opacity="0.9"><animateMotion path="M30 198 L970 198" dur="10.7s" begin="-2.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.95;0.95;0" dur="10.7s" begin="-2.6s" repeatCount="indefinite"/></circle>
+<circle r="2.3" fill="#38bdf8" opacity="0.9"><animateMotion path="M30 198 L970 198" dur="12.4s" begin="-5.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.95;0.95;0" dur="12.4s" begin="-5.2s" repeatCount="indefinite"/></circle>
+<circle r="2.0" fill="#38bdf8" opacity="0.9"><animateMotion path="M30 198 L970 198" dur="14.1s" begin="-7.800000000000001s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.95;0.95;0" dur="14.1s" begin="-7.800000000000001s" repeatCount="indefinite"/></circle>
+<text x="30" y="222" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="8.5" fill="#5c6570" text-anchor="start" font-weight="400" letter-spacing="0.14em" opacity="1.0">record in flight</text>
+</svg>

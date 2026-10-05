@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 250" width="1000" height="250" role="img" aria-labelledby="t d">
+<title id="t">BVG delay stream pipeline</title><desc id="d">GTFS-Realtime producer into Redpanda, Flink event-time windows, TimescaleDB aggregates, Grafana.</desc>
+<defs>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+  <path d="M40 0H0V40" fill="none" stroke="#141a24" stroke-width="1"/>
+</pattern>
+<radialGradient id="vig" cx="50%" cy="45%" r="70%">
+  <stop offset="0%" stop-color="#121826" stop-opacity="0.9"/>
+  <stop offset="100%" stop-color="#0b0e14" stop-opacity="1"/>
+</radialGradient>
+<filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+  <feGaussianBlur stdDeviation="6" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+</defs>
+<rect width="1000" height="250" fill="#0b0e14"/>
+<rect width="1000" height="250" fill="url(#grid)" opacity="0.55"/>
+<rect width="1000" height="250" fill="url(#vig)" opacity="0.75"/>
+<rect x="0.5" y="0.5" width="999" height="249" fill="none" stroke="#1b2230"/>
+<text x="28" y="34" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="10" fill="#5c6570" text-anchor="start" font-weight="400" letter-spacing="0.22em" opacity="1.0">BVG DELAY STREAM · EVENT TIME</text>
+<text x="972" y="34" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9.5" fill="#5c6570" text-anchor="end" font-weight="400" letter-spacing="0.1em" opacity="1.0">watermarks · late records kept, not dropped</text>
+<rect x="30.0" y="92" width="178.4" height="74" rx="3" fill="#0e121a" stroke="#1b2230" stroke-width="1" opacity="1.0"/>
+<rect x="30.0" y="92" width="178.4" height="1.6" fill="#38bdf8" opacity="0.35"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="4.5s" repeatCount="indefinite"/></rect>
+<text x="119.2" y="122" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11.5" fill="#e6edf3" text-anchor="middle" font-weight="700" letter-spacing="0.1em" opacity="1.0">PRODUCER</text>
+<text x="119.2" y="154" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400" letter-spacing="0.02em" opacity="1.0">protobuf, 30 s poll</text>
+<line x1="208.4" y1="129.0" x2="220.4" y2="129.0" stroke="#38bdf8" stroke-width="1.0" opacity="0.45"/>
+<path d="M216.4 126.0 L220.4 129.0 L216.4 132.0" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+<rect x="220.4" y="92" width="178.4" height="74" rx="3" fill="#0e121a" stroke="#1b2230" stroke-width="1" opacity="1.0"/>
+<rect x="220.4" y="92" width="178.4" height="1.6" fill="#38bdf8" opacity="0.35"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="4.9s" repeatCount="indefinite"/></rect>
+<text x="309.6" y="122" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11.5" fill="#e6edf3" text-anchor="middle" font-weight="700" letter-spacing="0.1em" opacity="1.0">REDPANDA</text>
+<text x="309.6" y="154" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400" letter-spacing="0.02em" opacity="1.0">6 partitions + DLQ</text>
+<line x1="398.8" y1="129.0" x2="410.8" y2="129.0" stroke="#38bdf8" stroke-width="1.0" opacity="0.45"/>
+<path d="M406.8 126.0 L410.8 129.0 L406.8 132.0" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+<rect x="410.8" y="92" width="178.4" height="74" rx="3" fill="#0e121a" stroke="#1b2230" stroke-width="1" opacity="1.0"/>
+<rect x="410.8" y="92" width="178.4" height="1.6" fill="#38bdf8" opacity="0.35"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="5.3s" repeatCount="indefinite"/></rect>
+<text x="500.0" y="122" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11.5" fill="#e6edf3" text-anchor="middle" font-weight="700" letter-spacing="0.1em" opacity="1.0">FLINK</text>
+<text x="500.0" y="154" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400" letter-spacing="0.02em" opacity="1.0">tumbling 1 h · sliding 5 min</text>
+<line x1="589.2" y1="129.0" x2="601.2" y2="129.0" stroke="#38bdf8" stroke-width="1.0" opacity="0.45"/>
+<path d="M597.2 126.0 L601.2 129.0 L597.2 132.0" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+<rect x="601.2" y="92" width="178.4" height="74" rx="3" fill="#0e121a" stroke="#1b2230" stroke-width="1" opacity="1.0"/>
+<rect x="601.2" y="92" width="178.4" height="1.6" fill="#38bdf8" opacity="0.35"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="5.7s" repeatCount="indefinite"/></rect>
+<text x="690.4000000000001" y="122" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11.5" fill="#e6edf3" text-anchor="middle" font-weight="700" letter-spacing="0.1em" opacity="1.0">TIMESCALEDB</text>
+<text x="690.4000000000001" y="154" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400" letter-spacing="0.02em" opacity="1.0">idempotent upsert</text>
+<line x1="779.6" y1="129.0" x2="791.6" y2="129.0" stroke="#38bdf8" stroke-width="1.0" opacity="0.45"/>
+<path d="M787.6 126.0 L791.6 129.0 L787.6 132.0" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.6"/>
+<rect x="791.6" y="92" width="178.4" height="74" rx="3" fill="#0e121a" stroke="#1b2230" stroke-width="1" opacity="1.0"/>
+<rect x="791.6" y="92" width="178.4" height="1.6" fill="#38bdf8" opacity="0.35"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="6.1s" repeatCount="indefinite"/></rect>
+<text x="880.8000000000001" y="122" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="11.5" fill="#e6edf3" text-anchor="middle" font-weight="700" letter-spacing="0.1em" opacity="1.0">GRAFANA</text>
+<text x="880.8000000000001" y="154" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="middle" font-weight="400" letter-spacing="0.02em" opacity="1.0">punctuality by line</text>
+<line x1="30" y1="198" x2="970" y2="198" stroke="#1b2230" stroke-width="1"/>
+<line x1="119.2" y1="166.0" x2="119.2" y2="198.0" stroke="#1b2230" stroke-width="0.8" opacity="0.7"/>
+<circle cx="119.2" cy="198" r="2.2" fill="#0e121a" stroke="#38bdf8" stroke-width="1" opacity="0.7"/>
+<line x1="309.6" y1="166.0" x2="309.6" y2="198.0" stroke="#1b2230" stroke-width="0.8" opacity="0.7"/>
+<circle cx="309.6" cy="198" r="2.2" fill="#0e121a" stroke="#38bdf8" stroke-width="1" opacity="0.7"/>
+<line x1="500.0" y1="166.0" x2="500.0" y2="198.0" stroke="#1b2230" stroke-width="0.8" opacity="0.7"/>
+<circle cx="500.0" cy="198" r="2.2" fill="#0e121a" stroke="#38bdf8" stroke-width="1" opacity="0.7"/>
+<line x1="690.4" y1="166.0" x2="690.4" y2="198.0" stroke="#1b2230" stroke-width="0.8" opacity="0.7"/>
+<circle cx="690.4" cy="198" r="2.2" fill="#0e121a" stroke="#38bdf8" stroke-width="1" opacity="0.7"/>
+<line x1="880.8" y1="166.0" x2="880.8" y2="198.0" stroke="#1b2230" stroke-width="0.8" opacity="0.7"/>
+<circle cx="880.8" cy="198" r="2.2" fill="#0e121a" stroke="#38bdf8" stroke-width="1" opacity="0.7"/>
+<circle r="3.0" fill="#38bdf8" opacity="0.9"><animateMotion path="M30 198 L970 198" dur="9.0s" begin="-0.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.95;0.95;0" dur="9.0s" begin="-0.0s" repeatCount="indefinite"/></circle>
+<circle r="2.6" fill="#38bdf8" opacity="0.9"><animateMotion path="M30 198 L970 198" dur="10.7s" begin="-2.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.95;0.95;0" dur="10.7s" begin="-2.6s" repeatCount="indefinite"/></circle>
+<circle r="2.3" fill="#38bdf8" opacity="0.9"><animateMotion path="M30 198 L970 198" dur="12.4s" begin="-5.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.95;0.95;0" dur="12.4s" begin="-5.2s" repeatCount="indefinite"/></circle>
+<circle r="2.0" fill="#38bdf8" opacity="0.9"><animateMotion path="M30 198 L970 198" dur="14.1s" begin="-7.800000000000001s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.95;0.95;0" dur="14.1s" begin="-7.800000000000001s" repeatCount="indefinite"/></circle>
+<text x="30" y="222" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="8.5" fill="#5c6570" text-anchor="start" font-weight="400" letter-spacing="0.14em" opacity="1.0">record in flight</text>
+</svg>
