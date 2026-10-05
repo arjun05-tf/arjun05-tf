@@ -1,6 +1,6 @@
 <div align="center">
 
-# ARJUN PATIL
+# ARJUN VINOD PATIL
 
 **AI/ML Engineer · AI Automation · Data Engineering** — Berlin
 
