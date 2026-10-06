@@ -9,7 +9,7 @@ harness to each one so the claims can be checked.
 
 <img src="assets/hero-graph.svg" alt="System map: ARJUN at the centre of AI, LLM, RAG, automation, ML, data, systems, MLOps and research clusters" width="100%">
 
-[LinkedIn](https://linkedin.com/in/arjun-patil-982266310) · [Email](mailto:arjunpatil02814@gmail.com) · [GitHub](https://github.com/arjun05-tf)
+[LinkedIn](https://www.linkedin.com/in/arjun-vinod-patil-982266310) · [Email](mailto:arjunpatil02814@gmail.com) · [GitHub](https://github.com/arjun05-tf)
 
 </div>
 
