@@ -71,7 +71,7 @@ Default provider is a deterministic simulator, so the stack runs and CI reproduc
 <img src="assets/rag-pipeline.svg" alt="RAG pipeline: query, multilingual embedding, Qdrant vector search, cross-encoder rerank, evidence, cited answer" width="100%">
 
 Question answering over the German working time act (ArbZG) with answers sourced to the exact
-paragraph — `§ 4 ArbZG`, not a page number. Official Bundesrecht XML is parsed at *Absatz* level,
+paragraph `§ 4 ArbZG`, not a page number. Official Bundesrecht XML is parsed at *Absatz* level,
 because that is the smallest citable unit in German law, and retrieval is measured rather than
 assumed.
 
@@ -82,7 +82,7 @@ assumed.
   AUROC 0.66; a cross-encoder reaches 0.83. Embedding similarity measures topical proximity, not
   sufficiency of evidence.
 - **Honest confounds in the README.** The reranked run also widened the candidate pool from 5 to
-  20, so part of the recall@5 gain is pool size, not the reranker — stated, not hidden.
+  20, so part of the recall@5 gain is pool size, not the reranker stated, not hidden.
 
 `Qdrant` `multilingual-e5-base` `cross-encoder reranking` `gpt-4o-mini` `Python`
 
@@ -153,13 +153,13 @@ unverifiable totals.
 
 ## Research and experimentation
 
-**Cross-Model Latent Memory Transfer** — `RESEARCH PROTOTYPE · PHASE 1 OF 6 · NO RESULTS YET`
+**Cross-Model Latent Memory Transfer**: `RESEARCH PROTOTYPE · PHASE 1 OF 6 · NO RESULTS YET`
 
 Can task-relevant information inside a small language model be extracted, compressed and used by a
 separate, stateless model, with the original text, KV cache and history discarded? Activation
 extraction and memory injection into a target model are implemented; the controlled dataset,
-baselines (zero-context, full-context, RAG, KV-cache transfer) and metrics — information retention
-ratio and compression ratio — are specified and not yet run. Open questions: how small the memory
+baselines (zero-context, full-context, RAG, KV-cache transfer) and metrics information retention
+ratio and compression ratio are specified and not yet run. Open questions: how small the memory
 can get before performance drops, which layers transfer best, and whether a representation from one
 architecture decodes in another. Joint work with Anuj Dalvi.
 
@@ -171,7 +171,7 @@ Beyond the shipped pipeline, the repository carries two measured studies: cross-
 failure and retrieval-confidence abstention. In progress: claim-level evidence attribution, where
 each sentence of an answer is scored against the retrieved paragraphs instead of the answer as a
 whole. Implemented, awaiting hand-labelled ground truth. 22 negatives are enough to show separation
-exists, not enough to calibrate a threshold — that is the next dataset.
+exists, not enough to calibrate a threshold, that is the next dataset.
 
 ---
 
