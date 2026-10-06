@@ -2,7 +2,7 @@
 
 # ARJUN VINOD PATIL
 
-**AI/ML Engineer · AI Automation · Data Engineering** — Berlin
+**AI/ML Engineer · AI Automation · Data Engineering** [Berlin]
 
 I build AI systems, workflow automation and data infrastructure, and I attach an evaluation
 harness to each one so the claims can be checked.
@@ -30,7 +30,7 @@ harness to each one so the claims can be checked.
 
 ## Knowledge graph
 
-Every node below is a tool or concept that appears in the repositories on this profile — not a wishlist.
+Every node below is a tool or concept that appears in the repositories on this profile, not a wishlist.
 
 <img src="assets/knowledge-graph.svg" alt="Knowledge graph of seven clusters: AI/LLM, retrieval, automation, streaming, ML, systems and research, each expanded into the tools used in the repositories" width="100%">
 
@@ -38,7 +38,7 @@ Every node below is a tool or concept that appears in the repositories on this p
 
 ## Featured projects
 
-### 1 · SignalOps AI — grounded B2B automation
+### 1 · SignalOps AI: grounded B2B automation
 
 <img src="assets/signalops-flow.svg" alt="SignalOps pipeline: lead, research, security signals, qualification, LLM draft, grounding validation, human approval, CRM sync" width="100%">
 
@@ -66,7 +66,7 @@ Default provider is a deterministic simulator, so the stack runs and CI reproduc
 
 ---
 
-### 2 · German Law RAG — retrieval you can cite
+### 2 · German Law RAG: retrieval you can cite
 
 <img src="assets/rag-pipeline.svg" alt="RAG pipeline: query, multilingual embedding, Qdrant vector search, cross-encoder rerank, evidence, cited answer" width="100%">
 
@@ -92,7 +92,7 @@ assumed.
 
 ---
 
-### 3 · BVG Delay Stream — event-time transit punctuality
+### 3 · BVG Delay Stream: event-time transit punctuality
 
 <img src="assets/bvg-stream.svg" alt="Streaming pipeline: producer, Redpanda, Flink, TimescaleDB, Grafana" width="100%">
 
@@ -102,7 +102,7 @@ station and hour on **event time**, and serves it on a Grafana dashboard. Whole 
 
 - **Event time is the stop time, not the entity timestamp.** Entity timestamps inside one snapshot
   span more than four hours, which would force a watermark lag of hours.
-- **Late records are captured, not dropped** — side output into a `late_events` table, visible on
+- **Late records are captured, not dropped**, side output into a `late_events` table, visible on
   the dashboard next to the on-time aggregates.
 - **Protobuf with a schema registry** pinned to `BACKWARD`, a dead-letter topic written by both the
   producer and the job, and an idempotent upsert sink.
@@ -165,7 +165,7 @@ architecture decodes in another. Joint work with Anuj Dalvi.
 
 [→ Repository](https://github.com/arjun05-tf/cross-model-latent-memory)
 
-**German Law RAG** — `EVALUATED SYSTEM · ONGOING`
+**German Law RAG**: `EVALUATED SYSTEM · ONGOING`
 
 Beyond the shipped pipeline, the repository carries two measured studies: cross-lingual ranking
 failure and retrieval-confidence abstention. In progress: claim-level evidence attribution, where
@@ -177,7 +177,7 @@ exists, not enough to calibrate a threshold — that is the next dataset.
 
 ## Supporting projects
 
-**BerlinRentML** — rent prediction validated on postal codes the model never saw.
+**BerlinRentML**: rent prediction validated on postal codes the model never saw.
 10,388 cleaned Berlin listings, LightGBM at R² 0.880 on a random split and 0.836 on a postal-code
 grouped split, which is the number that counts; split-conformal 90% intervals covering 88.5% of
 test listings; SHAP attribution, MLflow tracking and a PSI drift check over logged requests.
@@ -201,9 +201,9 @@ test listings; SHAP attribution, MLflow tracking and a PSI drift check over logg
 
 ## Currently building
 
-- **signalops-ai** — grounded outreach automation; latest work on the security-vendor ICP layer
-- **berlin-rent-predictor** — deployment of the portable model behind the live demo
-- **cross-model-latent-memory** — latent memory injection and the comparative baseline
+- **signalops-ai**: grounded outreach automation; latest work on the security-vendor ICP layer
+- **berlin-rent-predictor**: deployment of the portable model behind the live demo
+- **cross-model-latent-memory**: latent memory injection and the comparative baseline
 
 ---
 
