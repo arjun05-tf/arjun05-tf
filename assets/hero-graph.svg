@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" width="1000" height="440" role="img" aria-labelledby="t d">
-<title id="t">Arjun Patil — system map</title><desc id="d">Knowledge graph with ARJUN at the centre, connected to AI, LLM, RAG, automation, ML, data, systems, MLOps and research clusters.</desc>
+<title id="t">Arjun Patil system map</title><desc id="d">Knowledge graph with ARJUN at the centre, connected to AI, LLM, RAG, automation, ML, data, systems, MLOps and research clusters.</desc>
 <defs>
 <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
   <path d="M40 0H0V40" fill="none" stroke="#141a24" stroke-width="1"/>

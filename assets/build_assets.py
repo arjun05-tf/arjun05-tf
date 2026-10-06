@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import math
 import pathlib
+import random
 import xml.etree.ElementTree as ET
 
 OUT = pathlib.Path(__file__).parent
@@ -104,18 +105,6 @@ def node(x, y, r, color, dur=4.6, offset=0.0, halo=True, core=True):
     return s
 
 
-def slab(cx, y, hw, hh, stroke, accent, depth=16):
-    """Isometric plate with an extruded side, so the stack reads as depth."""
-    top = f"{cx - hw},{y} {cx},{y - hh} {cx + hw},{y} {cx},{y + hh}"
-    left = f"{cx - hw},{y} {cx},{y + hh} {cx},{y + hh + depth} {cx - hw},{y + depth}"
-    right = f"{cx + hw},{y} {cx},{y + hh} {cx},{y + hh + depth} {cx + hw},{y + depth}"
-    s = f'<polygon points="{left}" fill="#080b11" stroke="{stroke}" stroke-width="1"/>\n'
-    s += f'<polygon points="{right}" fill="#0a0e16" stroke="{stroke}" stroke-width="1"/>\n'
-    s += f'<polygon points="{top}" fill="#10151f" stroke="{stroke}" stroke-width="1"/>\n'
-    s += f'<polygon points="{top}" fill="{accent}" opacity="0.05"/>\n'
-    return s
-
-
 def panel(x, y, w, h, stroke=LINE, fill=PANEL, rx=3, op=1.0):
     return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{rx}" fill="{fill}" stroke="{stroke}" stroke-width="1" opacity="{op}"/>\n'
 
@@ -132,7 +121,7 @@ def write(name: str, body: str) -> None:
 def hero() -> None:
     W, H = 1000, 440
     cx, cy = 500, 224
-    s = head(W, H, "Arjun Patil — system map",
+    s = head(W, H, "Arjun Patil system map",
              "Knowledge graph with ARJUN at the centre, connected to AI, LLM, RAG, automation, "
              "ML, data, systems, MLOps and research clusters.")
     s += kicker(28, 34, "SYSTEM MAP")
@@ -204,7 +193,7 @@ CLUSTER_LINKS = [(0, 1), (0, 2), (0, 6), (1, 6), (2, 5), (2, 3), (3, 5), (4, 5),
 def knowledge_graph() -> None:
     W, H = 1000, 600
     s = head(W, H, "Technical knowledge graph",
-             "Seven clusters — AI/LLM, retrieval, automation, streaming, ML, systems and research — "
+             "Seven clusters (AI/LLM, retrieval, automation, streaming, ML, systems and research), "
              "each expanded into the tools used in the repositories.")
     s += kicker(28, 34, "KNOWLEDGE GRAPH")
     s += label(W - 28, 34, "tools present in the repositories", 10, DIM, anchor="end", ls="0.12em")
@@ -314,92 +303,346 @@ def ecosystem() -> None:
     write("project-ecosystem.svg", s)
 
 
-# ------------------------------------------------------------------ pipelines
+# ------------------------------------------- SignalOps: lead intelligence graph
+# Radial evidence graph on a 12 s cycle: evidence flows inward, the ICP arc
+# fills, then the outreach / grounding / approval / CRM states light in order.
 
-def pipeline(name: str, title: str, desc: str, kick: str, stages: list[tuple[str, str]],
-             col: str, note: str) -> None:
-    W, H = 1000, 250
-    n = len(stages)
-    pad, gap = 30, 12
-    bw = (W - 2 * pad - gap * (n - 1)) / n
-    y, bh = 92, 74
-    s = head(W, H, title, desc)
-    s += kicker(28, 34, kick)
-    s += label(W - 28, 34, note, 9.5, DIM, anchor="end", ls="0.1em")
-
-    for i, (main, meta) in enumerate(stages):
-        x = pad + i * (bw + gap)
-        s += panel(x, y, bw, bh, LINE, PANEL)
-        s += f'<rect x="{x}" y="{y}" width="{bw:.1f}" height="1.6" fill="{col}" opacity="0.35"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="{4.5 + i * 0.4}s" repeatCount="indefinite"/></rect>\n'
-        lines = main.split("\n")
-        for li, line in enumerate(lines):
-            s += label(x + bw / 2, y + 30 + li * 16 - (len(lines) - 1) * 8, line, 11.5, TEXT,
-                       anchor="middle", weight="700", ls="0.1em")
-        s += label(x + bw / 2, y + bh - 12, meta, 9, MUTED, anchor="middle", ls="0.02em")
-        if i < n - 1:
-            ax, bx = x + bw, x + bw + gap
-            s += edge(ax, y + bh / 2, bx, y + bh / 2, col, 1.0, 0.45)
-            s += f'<path d="M{bx - 4} {y + bh / 2 - 3} L{bx} {y + bh / 2} L{bx - 4} {y + bh / 2 + 3}" fill="none" stroke="{col}" stroke-width="1" opacity="0.6"/>\n'
-
-    # records travel on a rail under the stages: one dot = one record in flight
-    track = y + bh + 32
-    s += f'<line x1="{pad}" y1="{track}" x2="{W - pad}" y2="{track}" stroke="{LINE}" stroke-width="1"/>\n'
-    for i in range(n):
-        x = pad + i * (bw + gap) + bw / 2
-        s += edge(x, y + bh, x, track, LINE, 0.8, 0.7)
-        s += f'<circle cx="{x:.1f}" cy="{track}" r="2.2" fill="{PANEL}" stroke="{col}" stroke-width="1" opacity="0.7"/>\n'
-    path = f"M{pad} {track} L{W - pad} {track}"
-    for k in range(4):
-        s += (
-            f'<circle r="{3.0 - k * 0.35:.1f}" fill="{col}" opacity="0.9">'
-            f'<animateMotion path="{path}" dur="{9 + k * 1.7}s" begin="-{k * 2.6}s" repeatCount="indefinite"/>'
-            f'<animate attributeName="opacity" values="0;0.95;0.95;0" dur="{9 + k * 1.7}s" begin="-{k * 2.6}s" repeatCount="indefinite"/>'
-            "</circle>\n"
-        )
-    s += label(pad, track + 24, "record in flight", 8.5, DIM, ls="0.14em")
-    write(name, s)
+CYCLE = 12.0
 
 
-# ------------------------------------------------------------------- stack
-
-STACK = [
-    ("AI / LLM", "Claude · OpenAI · structured output · prompt versions", B),
-    ("RETRIEVAL", "multilingual-e5 · Qdrant · cross-encoder rerank", B),
-    ("APPLICATION", "FastAPI · Pydantic · Next.js console", A),
-    ("AUTOMATION", "n8n · HMAC webhooks · retries · CRM sync", A),
-    ("STREAMING", "protobuf · Redpanda · Flink · event time", A),
-    ("STORAGE", "PostgreSQL · TimescaleDB · Qdrant", A),
-    ("OPERATIONS", "Docker · GitHub Actions · MLflow · Grafana", A),
-]
+def keyed(attr: str, values: str, keytimes: str, dur: float = CYCLE) -> str:
+    return (f'<animate attributeName="{attr}" values="{values}" keyTimes="{keytimes}" '
+            f'dur="{dur}s" repeatCount="indefinite"/>')
 
 
-def stack() -> None:
-    W, H = 1000, 560
-    s = head(W, H, "Stack as layers",
-             "Seven isometric layers from AI and retrieval down through application, automation, "
-             "streaming, storage and operations, with a request descending through them.")
-    s += kicker(28, 34, "STACK")
-    s += label(W - 28, 34, "one request, top to bottom", 9.5, DIM, anchor="end", ls="0.1em")
+def signalops() -> None:
+    W, H = 1000, 540
+    cx, cy = 300, 288
+    s = head(W, H, "SignalOps AI lead intelligence graph",
+             "A company node at the centre of four evidence sources (security posture, compliance, "
+             "procurement, maturity). Evidence flows inward, an ICP fit arc fills, and the outreach, "
+             "grounding, human approval and CRM states activate in sequence.")
+    s += kicker(28, 34, "SIGNALOPS AI · LEAD INTELLIGENCE")
+    s += label(W - 28, 34, "evidence in, qualification out", 9.5, DIM, anchor="end", ls="0.1em")
 
-    cx, hw, hh, step, top = 500, 400, 44, 66, 80
-    for i, (name, techs, col) in enumerate(STACK):
-        y = top + i * step
-        s += slab(cx, y, hw, hh, LINE, col)
-        s += label(cx - 196, y - 1, name, 11, TEXT, weight="700", ls="0.16em")
-        s += label(cx - 196, y + 16, techs, 9.5, MUTED, ls="0.03em")
-        s += node(cx + 212, y + 6, 8, col, dur=4.4 + i * 0.5, offset=i * 0.9, halo=False)
-        if i < len(STACK) - 1:
-            s += edge(cx + 212, y + 15, cx + 212, y + step - 3, col, 0.9, 0.25)
+    rng = random.Random(11)
+    # background: other leads in the book, dim and out of focus
+    for i in range(26):
+        ang = rng.uniform(0, math.tau)
+        d = rng.uniform(190, 330)
+        bx, by = cx + math.cos(ang) * d * 1.25, cy + math.sin(ang) * d * 0.62
+        if not (40 < bx < 540 and 70 < by < H - 40):
+            continue
+        r = rng.uniform(1.6, 3.4)
+        s += f'<circle cx="{bx:.1f}" cy="{by:.1f}" r="{r:.1f}" fill="{MUTED}" opacity="{rng.uniform(0.10, 0.3):.2f}"/>\n'
 
-    rail = f"M{cx + 212} {top + 6} L{cx + 212} {top + 6 + (len(STACK) - 1) * step}"
+    for i, r in enumerate((76, 122, 172, 226)):
+        s += (f'<ellipse cx="{cx}" cy="{cy}" rx="{r * 1.22:.0f}" ry="{r * 0.78:.0f}" fill="none" '
+              f'stroke="#27324a" stroke-width="1" stroke-dasharray="2 8" opacity="{1.0 - i * 0.16:.2f}">'
+              f'<animateTransform attributeName="transform" type="rotate" from="0 {cx} {cy}" '
+              f'to="{360 if i % 2 else -360} {cx} {cy}" dur="{90 + i * 40}s" repeatCount="indefinite"/></ellipse>\n')
+
+    # provenance rails, same encoding the app uses: solid observed, dashed inferred, dotted gap
+    prov = [("none", "observed"), ("4 3", "inferred"), ("1 4", "recorded gap")]
+    sources = [
+        ("COMPLIANCE", 164, 226, "end", 0, -26),
+        ("PROCUREMENT", 268, 138, "middle", 0, -26),
+        ("SECURITY POSTURE", 428, 186, "middle", 0, -26),
+        ("MATURITY", 168, 368, "end", -24, 4),
+    ]
+    for i, (name, sx, sy, anchor, lx, ly) in enumerate(sources):
+        for k in range(3):
+            ang = math.atan2(sy - cy, sx - cx) + (k - 1) * 0.42
+            ex, ey = sx + math.cos(ang) * 58, sy + math.sin(ang) * 40
+            dash, _ = prov[k]
+            da = "" if dash == "none" else f' stroke-dasharray="{dash}"'
+            s += (f'<line x1="{sx}" y1="{sy}" x2="{ex:.1f}" y2="{ey:.1f}" stroke="{A}" '
+                  f'stroke-width="0.8" opacity="0.3"{da}/>\n')
+            s += f'<circle cx="{ex:.1f}" cy="{ey:.1f}" r="2.6" fill="{PANEL}" stroke="{A}" stroke-width="1" opacity="0.65"/>\n'
+            s += particle(ex, ey, sx, sy, A, r=1.5, dur=4.5 + k * 1.3 + i * 0.4, offset=i * 1.1 + k * 1.7, op=0.5)
+
+        s += edge(sx, sy, cx, cy, A, 1.2, 0.3)
+        for k in range(2):
+            s += particle(sx, sy, cx, cy, A, r=2.2, dur=5 + i * 0.9 + k * 2.1, offset=i * 1.6 + k * 2.4)
+        s += node(sx, sy, 15, A, dur=4.6 + i * 0.5, offset=i * 1.2)
+        s += label(sx + lx, sy + ly, name, 10, TEXT, anchor=anchor, weight="600", ls="0.12em")
+
+    # pain hypotheses: rule-derived, so they sit on their own branch under the company
+    s += edge(cx, cy, cx - 10, 432, B, 1.1, 0.3)
     for k in range(3):
-        s += (
-            f'<circle r="{2.4 - k * 0.4:.1f}" fill="{A}" opacity="0.9">'
-            f'<animateMotion path="{rail}" dur="{7 + k * 2.5}s" begin="-{k * 2.4}s" repeatCount="indefinite"/>'
-            f'<animate attributeName="opacity" values="0;0.9;0.9;0" dur="{7 + k * 2.5}s" begin="-{k * 2.4}s" repeatCount="indefinite"/>'
-            "</circle>\n"
-        )
-    write("stack-layers.svg", s)
+        px = cx - 74 + k * 68
+        s += edge(cx - 10, 432, px, 466, B, 0.8, 0.25)
+        s += (f'<circle cx="{px}" cy="466" r="5" fill="{PANEL}" stroke="{B}" stroke-width="1.2">'
+              + keyed("opacity", "0.35;0.35;1;1;0.35", f"0;{0.3 + k * 0.04};{0.4 + k * 0.04};0.86;1") + "</circle>\n")
+    s += label(cx - 10, 494, "PAIN HYPOTHESES", 9.5, MUTED, anchor="middle", ls="0.14em")
+
+    # the lead under evaluation
+    s += f'<circle cx="{cx}" cy="{cy}" r="46" fill="{B}" opacity="0.05"><animate attributeName="r" values="42;56;42" dur="8s" repeatCount="indefinite"/></circle>\n'
+    s += f'<circle cx="{cx}" cy="{cy}" r="27" fill="{PANEL}" stroke="{A}" stroke-width="1.8" filter="url(#glow)"/>\n'
+    s += label(cx, cy + 4, "COMPANY", 10, TEXT, anchor="middle", weight="700", ls="0.12em")
+
+    # ICP fit arc: sweeps as evidence lands, bands labelled the way the app bands them
+    ax, ay, ar = 660, 258, 54
+    circ = 2 * math.pi * ar
+    s += edge(cx + 28, cy - 6, ax - ar - 6, ay + 10, A, 1.2, 0.3)
+    s += particle(cx + 28, cy - 6, ax - ar - 6, ay + 10, A, r=2.2, dur=4.4, offset=0.4)
+    s += f'<circle cx="{ax}" cy="{ay}" r="{ar}" fill="none" stroke="{LINE}" stroke-width="6"/>\n'
+    s += (f'<circle cx="{ax}" cy="{ay}" r="{ar}" fill="none" stroke="{A}" stroke-width="6" '
+          f'stroke-linecap="round" stroke-dasharray="{circ:.1f}" transform="rotate(-90 {ax} {ay})" opacity="0.9">'
+          + keyed("stroke-dashoffset",
+                  f"{circ:.1f};{circ * 0.26:.1f};{circ * 0.26:.1f};{circ:.1f}", "0;0.34;0.9;1") + "</circle>\n")
+    for k, band in enumerate(("disqualified", "nurture", "qualified", "high priority")):
+        a0 = math.radians(-90 + k * 90)
+        s += (f'<line x1="{ax + math.cos(a0) * (ar - 9):.1f}" y1="{ay + math.sin(a0) * (ar - 9):.1f}" '
+              f'x2="{ax + math.cos(a0) * (ar + 9):.1f}" y2="{ay + math.sin(a0) * (ar + 9):.1f}" '
+              f'stroke="{BG}" stroke-width="3"/>\n')
+    s += label(ax, ay - 2, "ICP FIT", 10, TEXT, anchor="middle", weight="700", ls="0.14em")
+    s += label(ax, ay + 14, "rules + model", 8.5, DIM, anchor="middle", ls="0.06em")
+    s += label(ax, ay + ar + 26, "four bands, model never sets the total", 8.5, DIM, anchor="middle", ls="0.06em")
+
+    # state column: each state lights only after the one above it
+    rows = [("OUTREACH DRAFT", "German first touch", 0.40),
+            ("GROUNDING CHECK", "claim resolved to evidence id", 0.54),
+            ("HUMAN APPROVAL", "nothing sent without a click", 0.68),
+            ("CRM SYNC", "follow-up scheduled", 0.82)]
+    rx, ry = 790, 132
+    s += f'<line x1="{rx - 18}" y1="{ry}" x2="{rx - 18}" y2="{ry + 3 * 72}" stroke="{LINE}" stroke-width="1"/>\n'
+    s += edge(ax + ar + 6, ay - 20, rx - 18, ry + 6, A, 1.1, 0.3)
+    for i, (name, meta, t) in enumerate(rows):
+        y = ry + i * 72
+        s += (f'<circle cx="{rx - 18}" cy="{y}" r="5.5" fill="{PANEL}" stroke="{A}" stroke-width="1.4">'
+              + keyed("opacity", f"0.3;0.3;1;1;0.3", f"0;{t - 0.03};{t};0.93;1") + "</circle>\n")
+        s += (f'<circle cx="{rx - 18}" cy="{y}" r="5.5" fill="none" stroke="{A}" stroke-width="1.2">'
+              + keyed("r", f"5.5;5.5;20;20", f"0;{t};{t + 0.06};1")
+              + keyed("opacity", f"0;0.8;0;0", f"0;{t};{t + 0.06};1") + "</circle>\n")
+        s += label(rx, y + 4, name, 10.5, TEXT, weight="700", ls="0.12em")
+        s += label(rx, y + 20, meta, 8.5, MUTED, ls="0.04em")
+        if name == "GROUNDING CHECK":  # per-claim verification ticks
+            for k in range(3):
+                tx = rx + 2 + k * 16
+                s += (f'<path d="M{tx} {y + 32} l3 4 l6 -8" fill="none" stroke="{A}" stroke-width="1.4" opacity="0.2">'
+                      + keyed("opacity", f"0.15;0.15;1;1;0.15",
+                              f"0;{t + 0.01 + k * 0.012};{t + 0.03 + k * 0.012};0.93;1") + "</path>\n")
+
+    # run strip: the dashboard's last executions, failures marked, newest on the right
+    sx0, sy0 = 772, 448
+    rng2 = random.Random(4)
+    s += label(sx0, sy0 - 16, "RUN STRIP", 9.5, TEXT, weight="700", ls="0.16em")
+    s += label(sx0, sy0 + 44, "last executions, failures marked", 8.5, DIM, ls="0.06em")
+    for k in range(34):
+        h = rng2.uniform(6, 26)
+        fail = k in (9, 25)
+        s += (f'<rect x="{sx0 + k * 5.6:.1f}" y="{sy0 + 26 - h:.1f}" width="3.4" height="{h:.1f}" '
+              f'fill="{"#f0a500" if fail else A}" opacity="{0.8 if fail else 0.35}"/>\n')
+    s += (f'<rect x="{sx0 + 34 * 5.6:.1f}" y="{sy0 + 8}" width="3.4" height="18" fill="{A}">'
+          + keyed("opacity", "0;0;1;1;0.2", "0;0.8;0.84;0.96;1") + "</rect>\n")
+
+    s += label(28, H - 26, "rails: solid observed  ·  dashed inferred  ·  dotted recorded gap", 8.5, DIM, ls="0.08em")
+    write("signalops-intelligence.svg", s)
+
+
+# ------------------------------------------ German law RAG: semantic field map
+# 10 s retrieval cycle: query wave crosses the corpus, candidates light by
+# distance, the rerank column physically reorders, one paragraph locks in.
+
+RAG_CYCLE = 10.0
+
+
+def legal_field() -> None:
+    W, H = 1000, 520
+    s = head(W, H, "German law RAG retrieval map",
+             "A field of 80 Absatz-level law chunks. A query wave crosses the corpus, candidate "
+             "paragraphs light up, a cross-encoder column reorders them, and § 4 ArbZG locks to the "
+             "cited answer.")
+    s += kicker(28, 34, "GERMAN LAW RAG · SEMANTIC FIELD")
+    s += label(W - 28, 34, "corpus: 80 Absatz chunks, ArbZG", 9.5, DIM, anchor="end", ls="0.1em")
+
+    qx, qy = 300, 268
+    rng = random.Random(5)
+    pts = []
+    while len(pts) < 80:  # one node per chunk in the real corpus
+        x, y = rng.uniform(62, 548), rng.uniform(86, 464)
+        if all((x - px) ** 2 + (y - py) ** 2 > 820 for px, py, *_ in pts):
+            pts.append((x, y, math.hypot(x - qx, y - qy)))
+
+    pts.sort(key=lambda p: p[2])
+    # candidates are spread through the field, not the six nodes nearest the query:
+    # dense retrieval pulls from the whole corpus, which is the point of the figure
+    cand = [1, 6, 13, 22, 34, 47]
+    marks = ["§ 4", "§ 3", "§ 5", "§ 7", "§ 9", "§ 11"]
+
+    s += panel(50, 76, 512, 400, LINE, "#0c1018")
+    s += f'<clipPath id="field"><rect x="50" y="76" width="512" height="400"/></clipPath>\n'
+    s += label(60, 466, "semantic space", 8.5, DIM, ls="0.18em")
+
+    # the query itself, and the search wave it emits
+    s += panel(60, 48, 232, 22, LINE, PANEL)
+    s += label(70, 63, "QUERY  Ruhepausen? (DE / EN)", 9, TEXT, ls="0.04em")
+    s += edge(176, 70, qx, qy, B, 1.0, 0.3)
+    s += '<g clip-path="url(#field)">\n'
+    for k in range(2):
+        s += (f'<circle cx="{qx}" cy="{qy}" r="0" fill="none" stroke="{B}" stroke-width="1.2">'
+              + keyed("r", "0;330;330", f"0;0.4;1", RAG_CYCLE)
+              + keyed("opacity", "0.55;0;0", "0;0.4;1", RAG_CYCLE) + "</circle>\n")
+    s += node(qx, qy, 9, B, dur=3.2, halo=True)
+
+    for i, (x, y, d) in enumerate(pts):
+        t = min(0.38, d / 330 * 0.4)
+        if i in cand:
+            m = cand.index(i)
+            r = 3.8
+            s += (f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r}" fill="{B}" opacity="0.25">'
+                  + keyed("opacity", f"0.55;0.55;1;1;0.55", f"0;{t};{t + 0.04};0.9;1", RAG_CYCLE)
+                  + keyed("r", f"{r};{r};{r + 2.6};{r + 2.6};{r}", f"0;{t};{t + 0.04};0.9;1", RAG_CYCLE) + "</circle>\n")
+            s += (f'<text x="{x:.1f}" y="{y - 11:.1f}" font-family="{MONO}" font-size="9" fill="{TEXT}" '
+                  f'text-anchor="middle" opacity="0.6">{marks[m]}'
+                  + keyed("opacity", "0.6;0.6;1;1;0.6", f"0;{t};{t + 0.04};0.9;1", RAG_CYCLE) + "</text>\n")
+            s += (f'<line x1="{x:.1f}" y1="{y:.1f}" x2="600" y2="{150 + m * 42}" stroke="{B}" '
+                  f'stroke-width="0.9" opacity="0.14">'
+                  + keyed("opacity", f"0.14;0.14;0.4;0.4;0.14", f"0;{t + 0.04};{t + 0.1};0.9;1", RAG_CYCLE) + "</line>\n")
+        else:
+            # non-candidates recede while the wave is live: relevance filtering
+            r = rng.uniform(2.0, 3.4)
+            s += (f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r:.1f}" fill="{MUTED}" opacity="0.45">'
+                  + keyed("opacity", "0.45;0.45;0.16;0.16;0.45", f"0;{t};{t + 0.08};0.9;1", RAG_CYCLE) + "</circle>\n")
+    s += "</g>\n"
+
+    # rerank column: rows physically swap into their reranked order
+    s += label(612, 108, "CROSS-ENCODER RERANK", 9.5, TEXT, weight="700", ls="0.14em")
+    s += label(612, 124, "top-20 candidates reordered", 8.5, DIM, ls="0.04em")
+    order = [2, 0, 3, 1, 4, 5]  # dense rank -> reranked slot
+    for i in range(6):
+        y = 150 + i * 42
+        dy = (order.index(i) - i) * 42
+        s += (f'<g opacity="0.9">'
+              f'<animateTransform attributeName="transform" type="translate" '
+              f'values="0 0;0 0;0 {dy};0 {dy};0 0" keyTimes="0;0.5;0.62;0.92;1" '
+              f'dur="{RAG_CYCLE}s" repeatCount="indefinite"/>\n')
+        s += panel(600, y - 14, 196, 30, LINE, PANEL)
+        if i == 0:  # the paragraph that ends up on top after reranking
+            s += (f'<rect x="600" y="{y - 14}" width="196" height="30" rx="3" fill="none" stroke="{B}" '
+                  f'stroke-width="1.4" opacity="0">'
+                  + keyed("opacity", "0;0;0.95;0.95;0", "0;0.62;0.68;0.95;1", RAG_CYCLE) + "</rect>\n")
+        s += label(612, y + 5, marks[i] + "  ArbZG", 10, TEXT, weight="600", ls="0.08em")
+        bar = 28 + (5 - i) * 12
+        s += f'<rect x="700" y="{y - 4}" width="{bar}" height="8" fill="{B}" opacity="0.35" rx="1"/>\n'
+        s += "</g>\n"
+
+    # the winning paragraph stays attached to the answer as a citation
+    s += panel(826, 198, 146, 108, LINE, PANEL)
+    s += label(840, 224, "ANSWER", 10.5, TEXT, weight="700", ls="0.16em")
+    s += label(840, 244, "grounded in the", 8.5, MUTED, ls="0.04em")
+    s += label(840, 258, "retrieved text, or", 8.5, MUTED, ls="0.04em")
+    s += label(840, 272, "refusal", 8.5, MUTED, ls="0.04em")
+    s += f'<rect x="840" y="282" width="78" height="18" rx="2" fill="{B}" opacity="0.14"/>\n'
+    s += label(848, 295, "§ 4 ArbZG", 9, TEXT, weight="600", ls="0.04em")
+    s += (f'<line x1="796" y1="192" x2="826" y2="252" stroke="{B}" stroke-width="1.2" opacity="0">'
+          + keyed("opacity", "0;0;0.9;0.9;0", "0;0.64;0.72;0.95;1", RAG_CYCLE) + "</line>\n")
+    s += (f'<circle r="2.4" fill="{B}" opacity="0">'
+          f'<animateMotion path="M796 192 L826 252" dur="{RAG_CYCLE}s" repeatCount="indefinite" '
+          f'keyTimes="0;0.66;0.74;1" keyPoints="0;0;1;1" calcMode="linear"/>'
+          + keyed("opacity", "0;0;1;1;0", "0;0.66;0.74;0.95;1", RAG_CYCLE) + "</circle>\n")
+    s += label(28, H - 22, "wave: retrieval  ·  column: ranking  ·  chip: citation that stays attached",
+               8.5, DIM, ls="0.08em")
+    write("legal-retrieval.svg", s)
+
+
+# -------------------------------------------- BVG: live transit telemetry view
+
+def poly_path(pts: list[tuple[float, float]]) -> str:
+    return "M" + " L".join(f"{x:.0f} {y:.0f}" for x, y in pts)
+
+
+def bvg_telemetry() -> None:
+    W, H = 1000, 560
+    s = head(W, H, "BVG delay stream telemetry",
+             "Four abstract transit lines with trains in motion, stop events dropping onto an "
+             "event-time axis, one event diverted into the late side output, and a rolling window "
+             "sweeping a schematic punctuality series.")
+    s += kicker(28, 34, "BVG DELAY STREAM · LIVE TELEMETRY")
+    s += label(W - 28, 34, "event time, not arrival time", 9.5, DIM, anchor="end", ls="0.1em")
+
+    lines = [
+        ("U5", [(96, 118), (330, 110), (600, 124), (940, 112)], A),
+        ("S7", [(96, 166), (288, 180), (620, 160), (940, 174)], A),
+        ("U2", [(96, 214), (360, 228), (700, 210), (940, 222)], B),
+        ("M10", [(96, 262), (420, 250), (780, 266), (940, 254)], A),
+    ]
+    axis_y, late_y = 348, 392
+
+    for li, (name, pts, col) in enumerate(lines):
+        path = poly_path(pts)
+        s += f'<path d="{path}" fill="none" stroke="{col}" stroke-width="2" opacity="0.22"/>\n'
+        s += label(78, pts[0][1] + 4, name, 10, TEXT, anchor="end", weight="700", ls="0.1em")
+
+        stations = [(pts[0][0] + (pts[-1][0] - pts[0][0]) * f,
+                     pts[0][1] + (pts[-1][1] - pts[0][1]) * f + math.sin(f * 6 + li) * 5)
+                    for f in (0.12, 0.3, 0.48, 0.66, 0.84)]
+        for k, (sx, sy) in enumerate(stations):
+            s += (f'<circle cx="{sx:.0f}" cy="{sy:.0f}" r="3.2" fill="{PANEL}" stroke="{col}" stroke-width="1.2"/>\n')
+            s += (f'<circle cx="{sx:.0f}" cy="{sy:.0f}" r="3.2" fill="none" stroke="{col}" stroke-width="1">'
+                  f'<animate attributeName="r" values="3.2;11;11" dur="{6 + k}s" begin="-{li * 1.7 + k * 1.1:.1f}s" repeatCount="indefinite"/>'
+                  f'<animate attributeName="opacity" values="0.7;0;0" dur="{6 + k}s" begin="-{li * 1.7 + k * 1.1:.1f}s" repeatCount="indefinite"/></circle>\n')
+
+            # a stop event leaves the station and lands on the event-time axis
+            late = (li == 2 and k == 3)
+            tgt_y = late_y if late else axis_y
+            drift = 40 if late else 0
+            s += (f'<circle r="2" fill="{"#f0a500" if late else col}" opacity="0">'
+                  f'<animateMotion path="M{sx:.0f} {sy:.0f} L{sx + drift:.0f} {tgt_y}" dur="{7 + k * 0.8 + li:.1f}s" '
+                  f'begin="-{k * 1.9 + li * 0.9:.1f}s" repeatCount="indefinite"/>'
+                  f'<animate attributeName="opacity" values="0;0.9;0.9;0" dur="{7 + k * 0.8 + li:.1f}s" '
+                  f'begin="-{k * 1.9 + li * 0.9:.1f}s" repeatCount="indefinite"/></circle>\n')
+
+        for t in range(2):  # trains, different speeds and directions per line
+            dur = 26 + li * 7 + t * 11
+            rev = ' keyPoints="1;0" keyTimes="0;1" calcMode="linear"' if li % 2 else ""
+            s += (f'<g opacity="0.95"><rect x="-9" y="-3.5" width="18" height="7" rx="2.5" fill="{PANEL}" '
+                  f'stroke="{col}" stroke-width="1.2"/>'
+                  f'<rect x="-9" y="-3.5" width="5" height="7" rx="2.5" fill="{col}" opacity="0.55"/>'
+                  f'<animateMotion path="{path}" dur="{dur}s" begin="-{t * dur / 2 + li * 3:.1f}s" '
+                  f'rotate="auto" repeatCount="indefinite"{rev}/></g>\n')
+
+
+    # event-time axis and the late side output underneath it
+    s += f'<line x1="96" y1="{axis_y}" x2="940" y2="{axis_y}" stroke="{LINE}" stroke-width="1"/>\n'
+    for k in range(8):
+        x = 96 + k * 120
+        s += f'<line x1="{x}" y1="{axis_y - 4}" x2="{x}" y2="{axis_y + 4}" stroke="{DIM}" stroke-width="1"/>\n'
+    s += label(96, axis_y - 12, "EVENT TIME", 9, TEXT, weight="700", ls="0.18em")
+    s += label(940, axis_y - 12, "watermark + allowed lateness", 8.5, DIM, anchor="end", ls="0.06em")
+    s += (f'<line x1="760" y1="{axis_y - 16}" x2="760" y2="{axis_y + 16}" stroke="{A}" stroke-width="1.4" opacity="0.8">'
+          f'<animate attributeName="x1" values="620;860;620" dur="40s" repeatCount="indefinite"/>'
+          f'<animate attributeName="x2" values="620;860;620" dur="40s" repeatCount="indefinite"/></line>\n')
+
+    s += (f'<line x1="96" y1="{late_y}" x2="940" y2="{late_y}" stroke="#f0a500" stroke-width="1" '
+          f'opacity="0.35" stroke-dasharray="4 6"/>\n')
+    s += label(96, late_y - 8, "late_events  ·  side output, kept not dropped", 8.5, "#f0a500", ls="0.06em", op=0.8)
+    s += (f'<circle cx="540" cy="{late_y}" r="3" fill="#f0a500">'
+          f'<animate attributeName="opacity" values="0.2;1;0.2" dur="7s" repeatCount="indefinite"/></circle>\n')
+    s += (f'<circle cx="540" cy="{late_y}" r="3" fill="none" stroke="#f0a500" stroke-width="1">'
+          f'<animate attributeName="r" values="3;14;14" dur="7s" repeatCount="indefinite"/>'
+          f'<animate attributeName="opacity" values="0.8;0;0" dur="7s" repeatCount="indefinite"/></circle>\n')
+
+    # schematic punctuality series with the tumbling window sweeping across it
+    rng = random.Random(3)
+    base, top = 516, 444
+    for k in range(32):
+        x = 96 + k * 26.5
+        h = rng.uniform(14, 72)
+        s += f'<rect x="{x:.0f}" y="{base - h:.0f}" width="17" height="{h:.0f}" fill="{A}" opacity="0.18" rx="1"/>\n'
+    s += f'<line x1="96" y1="{base}" x2="940" y2="{base}" stroke="{LINE}" stroke-width="1"/>\n'
+    s += (f'<g><rect x="0" y="{top - 8}" width="196" height="{base - top + 14}" fill="{A}" opacity="0.07"/>'
+          f'<rect x="0" y="{top - 8}" width="196" height="{base - top + 14}" fill="none" stroke="{A}" '
+          f'stroke-width="1" opacity="0.4" stroke-dasharray="3 4"/>'
+          f'<text x="8" y="{top + 6}" font-family="{MONO}" font-size="8.5" fill="{A}" letter-spacing="0.1em" '
+          f'opacity="0.85">tumbling 1 h</text>'
+          f'<animateTransform attributeName="transform" type="translate" values="96 0;748 0;96 0" '
+          f'dur="34s" repeatCount="indefinite"/></g>\n')
+    s += label(96, base + 20, "sliding 1 h / 5 min runs alongside the tumbling window", 8.5, DIM, ls="0.06em")
+    s += label(940, base + 20, "schematic: throughput and punctuality not yet measured", 8.5, DIM,
+               anchor="end", ls="0.06em")
+    write("bvg-telemetry.svg", s)
 
 
 # ------------------------------------------------------------------ metrics
@@ -488,34 +731,8 @@ if __name__ == "__main__":
     hero()
     knowledge_graph()
     ecosystem()
-    pipeline(
-        "signalops-flow.svg", "SignalOps AI pipeline",
-        "Lead intake, research, security signals, qualification, model draft, grounding validation, "
-        "human approval and CRM sync.",
-        "SIGNALOPS AI · LEAD TO CRM",
-        [("LEAD", "webhook, HMAC"), ("RESEARCH", "enrichment"), ("SECURITY\nSIGNALS", "23 signal keys"),
-         ("QUALIFY", "rules + model"), ("LLM\nDRAFT", "German outreach"), ("GROUNDING", "claim ↔ evidence"),
-         ("HUMAN\nAPPROVAL", "nothing auto-sent"), ("CRM", "sync + follow-up")],
-        A, "deterministic code owns every write",
-    )
-    pipeline(
-        "bvg-stream.svg", "BVG delay stream pipeline",
-        "GTFS-Realtime producer into Redpanda, Flink event-time windows, TimescaleDB aggregates, Grafana.",
-        "BVG DELAY STREAM · EVENT TIME",
-        [("PRODUCER", "protobuf, 30 s poll"), ("REDPANDA", "6 partitions + DLQ"),
-         ("FLINK", "tumbling 1 h · sliding 5 min"), ("TIMESCALEDB", "idempotent upsert"),
-         ("GRAFANA", "punctuality by line")],
-        A, "watermarks · late records kept, not dropped",
-    )
-    pipeline(
-        "rag-pipeline.svg", "German law RAG pipeline",
-        "Query, multilingual embedding, Qdrant vector search, cross-encoder rerank, evidence selection, "
-        "grounded answer or refusal.",
-        "GERMAN LAW RAG · QUERY TO CITATION",
-        [("QUERY", "DE or EN"), ("EMBEDDING", "multilingual-e5, 768d"), ("VECTOR\nSEARCH", "Qdrant, top-20"),
-         ("RERANK", "cross-encoder"), ("EVIDENCE", "Absatz-level § chunks"), ("ANSWER", "cited, or refusal")],
-        B, "recall@1 0.44 → 0.60 after rerank",
-    )
-    stack()
+    signalops()
+    legal_field()
+    bvg_telemetry()
     metrics()
     activity()

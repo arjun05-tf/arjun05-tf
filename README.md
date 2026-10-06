@@ -15,6 +15,19 @@ harness to each one so the claims can be checked.
 
 ---
 
+## Stack
+
+| | |
+|---|---|
+| **AI / LLM** | <img src="https://img.shields.io/badge/Anthropic-0b0e14?logo=anthropic&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="Anthropic"> <img src="https://img.shields.io/badge/OpenAI-0b0e14?logo=openai&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="OpenAI"> <img src="https://img.shields.io/badge/Hugging%20Face-0b0e14?logo=huggingface&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="Hugging Face"> <img src="https://img.shields.io/badge/Qdrant-0b0e14?logo=qdrant&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="Qdrant"> |
+| **ML** | <img src="https://img.shields.io/badge/Python-0b0e14?logo=python&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="Python"> <img src="https://img.shields.io/badge/scikit--learn-0b0e14?logo=scikitlearn&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="scikit-learn"> <img src="https://img.shields.io/badge/NumPy-0b0e14?logo=numpy&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="NumPy"> <img src="https://img.shields.io/badge/pandas-0b0e14?logo=pandas&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="pandas"> <img src="https://img.shields.io/badge/MLflow-0b0e14?logo=mlflow&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="MLflow"> |
+| **Data** | <img src="https://img.shields.io/badge/Apache%20Kafka-0b0e14?logo=apachekafka&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="Apache Kafka"> <img src="https://img.shields.io/badge/Apache%20Flink-0b0e14?logo=apacheflink&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="Apache Flink"> <img src="https://img.shields.io/badge/PostgreSQL-0b0e14?logo=postgresql&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="PostgreSQL"> <img src="https://img.shields.io/badge/TimescaleDB-0b0e14?logo=timescale&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="TimescaleDB"> |
+| **Backend** | <img src="https://img.shields.io/badge/FastAPI-0b0e14?logo=fastapi&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="FastAPI"> <img src="https://img.shields.io/badge/Pydantic-0b0e14?logo=pydantic&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="Pydantic"> <img src="https://img.shields.io/badge/SQLAlchemy-0b0e14?logo=sqlalchemy&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="SQLAlchemy"> <img src="https://img.shields.io/badge/n8n-0b0e14?logo=n8n&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="n8n"> |
+| **Frontend** | <img src="https://img.shields.io/badge/Next.js-0b0e14?logo=nextdotjs&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="Next.js"> <img src="https://img.shields.io/badge/React-0b0e14?logo=react&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="React"> <img src="https://img.shields.io/badge/TypeScript-0b0e14?logo=typescript&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="TypeScript"> <img src="https://img.shields.io/badge/Tailwind%20CSS-0b0e14?logo=tailwindcss&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="Tailwind CSS"> |
+| **Ops** | <img src="https://img.shields.io/badge/Docker-0b0e14?logo=docker&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="Docker"> <img src="https://img.shields.io/badge/GitHub%20Actions-0b0e14?logo=githubactions&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="GitHub Actions"> <img src="https://img.shields.io/badge/Grafana-0b0e14?logo=grafana&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="Grafana"> <img src="https://img.shields.io/badge/pytest-0b0e14?logo=pytest&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="pytest"> <img src="https://img.shields.io/badge/Ruff-0b0e14?logo=ruff&style=flat&logoColor=white&color=0b0e14&labelColor=161b22" alt="Ruff"> |
+
+---
+
 ## Current focus
 
 | Layer | What I work on |
@@ -40,7 +53,7 @@ Every node below is a tool or concept that appears in the repositories on this p
 
 ### 1 · SignalOps AI: grounded B2B automation
 
-<img src="assets/signalops-flow.svg" alt="SignalOps pipeline: lead, research, security signals, qualification, LLM draft, grounding validation, human approval, CRM sync" width="100%">
+<img src="assets/signalops-intelligence.svg" alt="Lead intelligence graph: a company node surrounded by security posture, compliance, procurement and maturity evidence sources, an ICP fit arc, and the outreach, grounding, approval and CRM states" width="100%">
 
 Lead research, enrichment, qualification and outreach automation, built as the internal sales/ops
 stack a small cybersecurity vendor could run. Leads arrive by signed webhook, get enriched and
@@ -68,10 +81,10 @@ Default provider is a deterministic simulator, so the stack runs and CI reproduc
 
 ### 2 · German Law RAG: retrieval you can cite
 
-<img src="assets/rag-pipeline.svg" alt="RAG pipeline: query, multilingual embedding, Qdrant vector search, cross-encoder rerank, evidence, cited answer" width="100%">
+<img src="assets/legal-retrieval.svg" alt="Semantic field of 80 Absatz-level law chunks: a query wave crosses the corpus, candidate paragraphs light up, a cross-encoder column reorders them, and the winning paragraph locks to a cited answer" width="100%">
 
 Question answering over the German working time act (ArbZG) with answers sourced to the exact
-paragraph `§ 4 ArbZG`, not a page number. Official Bundesrecht XML is parsed at *Absatz* level,
+paragraph (`§ 4 ArbZG`), not a page number. Official Bundesrecht XML is parsed at *Absatz* level,
 because that is the smallest citable unit in German law, and retrieval is measured rather than
 assumed.
 
@@ -82,7 +95,7 @@ assumed.
   AUROC 0.66; a cross-encoder reaches 0.83. Embedding similarity measures topical proximity, not
   sufficiency of evidence.
 - **Honest confounds in the README.** The reranked run also widened the candidate pool from 5 to
-  20, so part of the recall@5 gain is pool size, not the reranker stated, not hidden.
+  20, so part of the recall@5 gain is pool size, not the reranker. Stated, not hidden.
 
 `Qdrant` `multilingual-e5-base` `cross-encoder reranking` `gpt-4o-mini` `Python`
 
@@ -94,7 +107,7 @@ assumed.
 
 ### 3 · BVG Delay Stream: event-time transit punctuality
 
-<img src="assets/bvg-stream.svg" alt="Streaming pipeline: producer, Redpanda, Flink, TimescaleDB, Grafana" width="100%">
+<img src="assets/bvg-telemetry.svg" alt="Transit telemetry view: trains moving along four abstract lines, stop events dropping onto an event-time axis, one event diverted into the late side output, and a rolling window sweeping a schematic punctuality series" width="100%">
 
 A real-time pipeline over the VBB/BVG GTFS-Realtime feed that computes punctuality by line,
 station and hour on **event time**, and serves it on a Grafana dashboard. Whole stack runs under
@@ -102,7 +115,7 @@ station and hour on **event time**, and serves it on a Grafana dashboard. Whole 
 
 - **Event time is the stop time, not the entity timestamp.** Entity timestamps inside one snapshot
   span more than four hours, which would force a watermark lag of hours.
-- **Late records are captured, not dropped**, side output into a `late_events` table, visible on
+- **Late records are captured, not dropped**: side output into a `late_events` table, visible on
   the dashboard next to the on-time aggregates.
 - **Protobuf with a schema registry** pinned to `BACKWARD`, a dead-letter topic written by both the
   producer and the job, and an idempotent upsert sink.
@@ -134,23 +147,6 @@ unverifiable totals.
 
 ---
 
-## Stack
-
-<img src="assets/stack-layers.svg" alt="Stack as seven isometric layers: AI/LLM, retrieval, application, automation, streaming, storage, operations" width="100%">
-
-| | |
-|---|---|
-| **AI / LLM** | Claude · OpenAI · structured output with schema repair · versioned prompts · grounding validation |
-| **Retrieval** | multilingual-e5-base · Qdrant · cross-encoder reranking · abstention analysis |
-| **ML** | Python · scikit-learn · LightGBM · XGBoost · SHAP · split-conformal intervals |
-| **Data** | protobuf · Redpanda (Kafka API) · Apache Flink · TimescaleDB · PostgreSQL |
-| **Backend** | FastAPI · Pydantic · SQLAlchemy · Alembic · HMAC-signed webhooks |
-| **Automation** | n8n · idempotent intake · retry and throttle policy · CRM sync |
-| **Infrastructure** | Docker Compose · GitHub Actions · MLflow · Grafana · pytest · ruff · mypy |
-| **Frontend** | Next.js · React · TypeScript · Tailwind |
-
----
-
 ## Research and experimentation
 
 **Cross-Model Latent Memory Transfer**: `RESEARCH PROTOTYPE · PHASE 1 OF 6 · NO RESULTS YET`
@@ -158,8 +154,8 @@ unverifiable totals.
 Can task-relevant information inside a small language model be extracted, compressed and used by a
 separate, stateless model, with the original text, KV cache and history discarded? Activation
 extraction and memory injection into a target model are implemented; the controlled dataset,
-baselines (zero-context, full-context, RAG, KV-cache transfer) and metrics information retention
-ratio and compression ratio are specified and not yet run. Open questions: how small the memory
+baselines (zero-context, full-context, RAG, KV-cache transfer) and metrics (information retention
+ratio and compression ratio) are specified and not yet run. Open questions: how small the memory
 can get before performance drops, which layers transfer best, and whether a representation from one
 architecture decodes in another. Joint work with Anuj Dalvi.
 
@@ -171,7 +167,7 @@ Beyond the shipped pipeline, the repository carries two measured studies: cross-
 failure and retrieval-confidence abstention. In progress: claim-level evidence attribution, where
 each sentence of an answer is scored against the retrieved paragraphs instead of the answer as a
 whole. Implemented, awaiting hand-labelled ground truth. 22 negatives are enough to show separation
-exists, not enough to calibrate a threshold, that is the next dataset.
+exists, not enough to calibrate a threshold. That is the next dataset.
 
 ---
 
@@ -211,7 +207,7 @@ test listings; SHAP attribution, MLflow tracking and a PSI drift check over logg
 
 **Open to AI/ML engineering, AI automation and data engineering work.**
 
-[LinkedIn](https://linkedin.com/in/arjun-patil-982266310) · [arjunpatil02814@gmail.com](mailto:arjunpatil02814@gmail.com)
+[LinkedIn](https://www.linkedin.com/in/arjun-vinod-patil-982266310) · [arjunpatil02814@gmail.com](mailto:arjunpatil02814@gmail.com)
 
 <sub>Diagrams are generated from <a href="assets/build_assets.py">assets/build_assets.py</a>. Activity snapshot taken 2026-10-05.</sub>
 

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" role="img" aria-labelledby="t d">
-<title id="t">Technical knowledge graph</title><desc id="d">Seven clusters — AI/LLM, retrieval, automation, streaming, ML, systems and research — each expanded into the tools used in the repositories.</desc>
+<title id="t">Technical knowledge graph</title><desc id="d">Seven clusters (AI/LLM, retrieval, automation, streaming, ML, systems and research), each expanded into the tools used in the repositories.</desc>
 <defs>
 <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
   <path d="M40 0H0V40" fill="none" stroke="#141a24" stroke-width="1"/>
