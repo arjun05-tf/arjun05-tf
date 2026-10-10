@@ -8,6 +8,7 @@ SMIL animation only (CSS keyframes are unreliable inside GitHub's <img> context)
 
 from __future__ import annotations
 
+import contextlib
 import math
 import pathlib
 import random
@@ -15,15 +16,43 @@ import xml.etree.ElementTree as ET
 
 OUT = pathlib.Path(__file__).parent
 
-BG = "#0b0e14"
-PANEL = "#0e121a"
-LINE = "#1b2230"
-GRID = "#141a24"
-TEXT = "#e6edf3"
-MUTED = "#8b949e"
-DIM = "#5c6570"
-A = "#38bdf8"  # data / flow
-B = "#a78bfa"  # AI / research
+BG = "#0c0c0e"
+PANEL = "#141418"
+LINE = "#2b2b32"
+GRID = "#17171a"
+TEXT = "#f2efe9"
+MUTED = "#a29e95"
+DIM = "#6f6c66"
+VIG = "#16161c"
+A = "#ff4d19"  # the one accent
+B = "#f2efe9"  # bone, the second voice
+
+# The three project figures are drawn in their own repository's language rather
+# than in this page's. A profile that paints every project the same colour is a
+# worse portfolio than one that lets each project look like itself.
+PALETTES = {
+    "signalops": dict(BG="#05080a", PANEL="#0a1013", LINE="#15302a", GRID="#0b1512",
+                      VIG="#05080a", TEXT="#cfe3d8", MUTED="#7d9389", DIM="#5d7068",
+                      A="#35d07f", B="#ffb020"),
+    "law": dict(BG="#0b0f14", PANEL="#0e151d", LINE="#1b2735", GRID="#131c26",
+                VIG="#111a24", TEXT="#e6edf3", MUTED="#8b98a6", DIM="#5a6673",
+                A="#4cc9f0", B="#f2b53c"),
+    "transit": dict(BG="#f7d117", PANEL="#f7d117", LINE="#15161a", GRID="#e9c40e",
+                    VIG="#f7d117", TEXT="#15161a", MUTED="#2c2d30", DIM="#4a4b4e",
+                    A="#0a60a8", B="#e2001a"),
+}
+
+
+@contextlib.contextmanager
+def theme(name):
+    """Render one figure in another project's palette."""
+    keys = list(PALETTES[name])
+    saved = {key: globals()[key] for key in keys}
+    globals().update(PALETTES[name])
+    try:
+        yield
+    finally:
+        globals().update(saved)
 
 MONO = "ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace"
 SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif"
@@ -37,7 +66,7 @@ def head(w: int, h: int, title: str, desc: str) -> str:
   <path d="M40 0H0V40" fill="none" stroke="{GRID}" stroke-width="1"/>
 </pattern>
 <radialGradient id="vig" cx="50%" cy="45%" r="70%">
-  <stop offset="0%" stop-color="#121826" stop-opacity="0.9"/>
+  <stop offset="0%" stop-color="{VIG}" stop-opacity="0.9"/>
   <stop offset="100%" stop-color="{BG}" stop-opacity="1"/>
 </radialGradient>
 <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
@@ -52,7 +81,8 @@ def head(w: int, h: int, title: str, desc: str) -> str:
 """
 
 
-def label(x, y, s, size=11, fill=MUTED, anchor="start", family=MONO, weight="400", ls="0.12em", op=1.0):
+def label(x, y, s, size=11, fill=None, anchor="start", family=MONO, weight="400", ls="0.12em", op=1.0):
+    fill = MUTED if fill is None else fill
     return (
         f'<text x="{x}" y="{y}" font-family="{family}" font-size="{size}" fill="{fill}" '
         f'text-anchor="{anchor}" font-weight="{weight}" letter-spacing="{ls}" opacity="{op}">{s}</text>\n'
@@ -63,8 +93,9 @@ def kicker(x, y, s):
     return label(x, y, s, size=10, fill=DIM, ls="0.22em")
 
 
-def edge(x1, y1, x2, y2, color=LINE, width=1.0, op=0.8, dash=None, dur=None, offset=0.0):
+def edge(x1, y1, x2, y2, color=None, width=1.0, op=0.8, dash=None, dur=None, offset=0.0):
     """Thin edge; with dash+dur it becomes a slow travelling stroke."""
+    color = LINE if color is None else color
     s = f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="{color}" stroke-width="{width}" opacity="{op}"'
     if dash:
         s += f' stroke-dasharray="{dash}">'
@@ -76,7 +107,8 @@ def edge(x1, y1, x2, y2, color=LINE, width=1.0, op=0.8, dash=None, dur=None, off
     return s + "/>\n"
 
 
-def particle(x1, y1, x2, y2, color=A, r=2.1, dur=5.0, offset=0.0, op=0.95):
+def particle(x1, y1, x2, y2, color=None, r=2.1, dur=5.0, offset=0.0, op=0.95):
+    color = A if color is None else color
     return (
         f'<circle r="{r}" fill="{color}" opacity="{op}">'
         f'<animateMotion path="M{x1:.1f} {y1:.1f} L{x2:.1f} {y2:.1f}" dur="{dur}s" '
@@ -105,7 +137,9 @@ def node(x, y, r, color, dur=4.6, offset=0.0, halo=True, core=True):
     return s
 
 
-def panel(x, y, w, h, stroke=LINE, fill=PANEL, rx=3, op=1.0):
+def panel(x, y, w, h, stroke=None, fill=None, rx=0, op=1.0):
+    stroke = LINE if stroke is None else stroke
+    fill = PANEL if fill is None else fill
     return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{rx}" fill="{fill}" stroke="{stroke}" stroke-width="1" opacity="{op}"/>\n'
 
 
@@ -731,8 +765,11 @@ if __name__ == "__main__":
     hero()
     knowledge_graph()
     ecosystem()
-    signalops()
-    legal_field()
-    bvg_telemetry()
+    with theme("signalops"):
+        signalops()
+    with theme("law"):
+        legal_field()
+    with theme("transit"):
+        bvg_telemetry()
     metrics()
     activity()
