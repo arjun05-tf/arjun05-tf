@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 230" width="1000" height="230" role="img" aria-labelledby="t d">
-<title id="t">Recent push activity</title><desc id="d">Five repositories ordered by last push, measured in days before 5 October 2026.</desc>
+<title id="t">Recent push activity</title><desc id="d">Five repositories ordered by last push, measured in days before 10 October 2026.</desc>
 <defs>
 <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
   <path d="M40 0H0V40" fill="none" stroke="#141a24" stroke-width="1"/>
@@ -18,32 +18,32 @@
 <rect width="1000" height="230" fill="url(#vig)" opacity="0.75"/>
 <rect x="0.5" y="0.5" width="999" height="229" fill="none" stroke="#1b2230"/>
 <text x="28" y="34" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="10" fill="#5c6570" text-anchor="start" font-weight="400" letter-spacing="0.22em" opacity="1.0">RECENT BUILD ACTIVITY</text>
-<text x="972" y="34" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9.5" fill="#5c6570" text-anchor="end" font-weight="400" letter-spacing="0.1em" opacity="1.0">last push · as of 2026-10-05</text>
-<text x="236" y="74" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="10" fill="#e6edf3" text-anchor="end" font-weight="400" letter-spacing="0.06em" opacity="1.0">signalops-ai</text>
-<rect x="250" y="66" width="620" height="8" fill="#38bdf8" opacity="0.18"/>
-<rect x="250" y="66" width="2" height="8" fill="#38bdf8" opacity="0.9"/>
-<circle r="2" cy="70" fill="#38bdf8" opacity="0.85"><animateMotion path="M250 70 L870 70" dur="6.0s" begin="-0.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="6.0s" begin="-0.0s" repeatCount="indefinite"/></circle>
+<text x="972" y="34" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9.5" fill="#5c6570" text-anchor="end" font-weight="400" letter-spacing="0.1em" opacity="1.0">last push · as of 2026-10-10</text>
+<text x="236" y="74" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="10" fill="#e6edf3" text-anchor="end" font-weight="400" letter-spacing="0.06em" opacity="1.0">german-law-rag</text>
+<rect x="250" y="66" width="620" height="8" fill="#a78bfa" opacity="0.18"/>
+<rect x="250" y="66" width="2" height="8" fill="#a78bfa" opacity="0.9"/>
+<circle r="2" cy="70" fill="#a78bfa" opacity="0.85"><animateMotion path="M250 70 L870 70" dur="6.0s" begin="-0.0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="6.0s" begin="-0.0s" repeatCount="indefinite"/></circle>
 <text x="880.0" y="74" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="start" font-weight="400" letter-spacing="0.04em" opacity="1.0">today</text>
-<text x="236" y="100" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="10" fill="#e6edf3" text-anchor="end" font-weight="400" letter-spacing="0.06em" opacity="1.0">berlin-rent-predictor</text>
-<rect x="250" y="92" width="602" height="8" fill="#38bdf8" opacity="0.18"/>
+<text x="236" y="100" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="10" fill="#e6edf3" text-anchor="end" font-weight="400" letter-spacing="0.06em" opacity="1.0">signalops-ai</text>
+<rect x="250" y="92" width="620" height="8" fill="#38bdf8" opacity="0.18"/>
 <rect x="250" y="92" width="2" height="8" fill="#38bdf8" opacity="0.9"/>
-<circle r="2" cy="96" fill="#38bdf8" opacity="0.85"><animateMotion path="M250 96 L852 96" dur="7.3s" begin="-1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="7.3s" begin="-1.6s" repeatCount="indefinite"/></circle>
-<text x="861.7647058823529" y="100" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="start" font-weight="400" letter-spacing="0.04em" opacity="1.0">1d ago</text>
+<circle r="2" cy="96" fill="#38bdf8" opacity="0.85"><animateMotion path="M250 96 L870 96" dur="7.3s" begin="-1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="7.3s" begin="-1.6s" repeatCount="indefinite"/></circle>
+<text x="880.0" y="100" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="start" font-weight="400" letter-spacing="0.04em" opacity="1.0">today</text>
 <text x="236" y="126" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="10" fill="#e6edf3" text-anchor="end" font-weight="400" letter-spacing="0.06em" opacity="1.0">bvg-delay-stream</text>
-<rect x="250" y="118" width="584" height="8" fill="#38bdf8" opacity="0.18"/>
+<rect x="250" y="118" width="620" height="8" fill="#38bdf8" opacity="0.18"/>
 <rect x="250" y="118" width="2" height="8" fill="#38bdf8" opacity="0.9"/>
-<circle r="2" cy="122" fill="#38bdf8" opacity="0.85"><animateMotion path="M250 122 L834 122" dur="8.6s" begin="-3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="8.6s" begin="-3.2s" repeatCount="indefinite"/></circle>
-<text x="843.5294117647059" y="126" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="start" font-weight="400" letter-spacing="0.04em" opacity="1.0">2d ago</text>
-<text x="236" y="152" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="10" fill="#e6edf3" text-anchor="end" font-weight="400" letter-spacing="0.06em" opacity="1.0">cross-model-latent-memory</text>
-<rect x="250" y="144" width="547" height="8" fill="#a78bfa" opacity="0.18"/>
-<rect x="250" y="144" width="2" height="8" fill="#a78bfa" opacity="0.9"/>
-<circle r="2" cy="148" fill="#a78bfa" opacity="0.85"><animateMotion path="M250 148 L797 148" dur="9.9s" begin="-4.800000000000001s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="9.9s" begin="-4.800000000000001s" repeatCount="indefinite"/></circle>
-<text x="807.0588235294117" y="152" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="start" font-weight="400" letter-spacing="0.04em" opacity="1.0">4d ago</text>
-<text x="236" y="178" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="10" fill="#e6edf3" text-anchor="end" font-weight="400" letter-spacing="0.06em" opacity="1.0">german-law-rag</text>
-<rect x="250" y="170" width="346" height="8" fill="#a78bfa" opacity="0.18"/>
+<circle r="2" cy="122" fill="#38bdf8" opacity="0.85"><animateMotion path="M250 122 L870 122" dur="8.6s" begin="-3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="8.6s" begin="-3.2s" repeatCount="indefinite"/></circle>
+<text x="880.0" y="126" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="start" font-weight="400" letter-spacing="0.04em" opacity="1.0">today</text>
+<text x="236" y="152" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="10" fill="#e6edf3" text-anchor="end" font-weight="400" letter-spacing="0.06em" opacity="1.0">berlin-rent-predictor</text>
+<rect x="250" y="144" width="620" height="8" fill="#38bdf8" opacity="0.18"/>
+<rect x="250" y="144" width="2" height="8" fill="#38bdf8" opacity="0.9"/>
+<circle r="2" cy="148" fill="#38bdf8" opacity="0.85"><animateMotion path="M250 148 L870 148" dur="9.9s" begin="-4.800000000000001s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="9.9s" begin="-4.800000000000001s" repeatCount="indefinite"/></circle>
+<text x="880.0" y="152" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="start" font-weight="400" letter-spacing="0.04em" opacity="1.0">today</text>
+<text x="236" y="178" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="10" fill="#e6edf3" text-anchor="end" font-weight="400" letter-spacing="0.06em" opacity="1.0">cross-model-latent-memory</text>
+<rect x="250" y="170" width="474" height="8" fill="#a78bfa" opacity="0.18"/>
 <rect x="250" y="170" width="2" height="8" fill="#a78bfa" opacity="0.9"/>
-<circle r="2" cy="174" fill="#a78bfa" opacity="0.85"><animateMotion path="M250 174 L596 174" dur="11.2s" begin="-6.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="11.2s" begin="-6.4s" repeatCount="indefinite"/></circle>
-<text x="606.4705882352941" y="178" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="start" font-weight="400" letter-spacing="0.04em" opacity="1.0">15d ago</text>
+<circle r="2" cy="174" fill="#a78bfa" opacity="0.85"><animateMotion path="M250 174 L724 174" dur="11.2s" begin="-6.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.9;0" dur="11.2s" begin="-6.4s" repeatCount="indefinite"/></circle>
+<text x="734.1176470588234" y="178" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace" font-size="9" fill="#8b949e" text-anchor="start" font-weight="400" letter-spacing="0.04em" opacity="1.0">8d ago</text>
 <circle cx="40" cy="204" r="7" fill="#38bdf8" opacity="0.10"><animate attributeName="r" values="7;10.8;7" dur="2.6s" begin="-0.00s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.07;0.20;0.07" dur="2.6s" begin="-0.00s" repeatCount="indefinite"/></circle>
 <circle cx="40" cy="204" r="3.2" fill="#0e121a" stroke="#38bdf8" stroke-width="1.4"/>
 <circle cx="40" cy="204" r="1.8" fill="#38bdf8"><animate attributeName="opacity" values="0.45;1;0.45" dur="2.6s" begin="-0.00s" repeatCount="indefinite"/></circle>

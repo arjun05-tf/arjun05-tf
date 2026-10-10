@@ -101,7 +101,7 @@ assumed.
 
 **80 citable chunks · 113 evaluation questions (91 answerable + 22 negatives) · recall@1 0.44 → 0.60 · MRR 0.585 → 0.722**
 
-[→ Repository](https://github.com/arjun05-tf/german-law-rag)
+[→ Repository](https://github.com/arjun05-tf/german-law-rag) · [→ Live](https://german-law-rag.vercel.app)
 
 ---
 
@@ -122,7 +122,7 @@ station and hour on **event time**, and serves it on a Grafana dashboard. Whole 
 
 `Python` `protobuf` `Redpanda (Kafka API)` `Apache Flink (Java)` `TimescaleDB` `Grafana` `Docker`
 
-**6 partitions · tumbling 1 h + sliding 1 h/5 min windows · 5,021 trip updates and 82,892 stop-time updates per feed snapshot**
+**6 partitions · tumbling 1 h + sliding 1 h/5 min windows · 6,619 trip updates and 139,681 stop-time updates per feed snapshot, 47% of them carrying a delay**
 Throughput and latency figures are deliberately blank in the repo until a full 24-hour run is measured.
 
 [→ Repository](https://github.com/arjun05-tf/bvg-delay-stream)
@@ -140,7 +140,7 @@ an evaluation harness that produces numbers I am willing to publish.
 
 ## Engineering metrics
 
-<img src="assets/metrics.svg" alt="Engineering metrics: 42 endpoints, 7 workflows, 228 tests, 134 labelled eval items, 113 retrieval questions, 80 law chunks, 10,388 listings, 82,892 stop-time updates" width="100%">
+<img src="assets/metrics.svg" alt="Engineering metrics: 42 endpoints, 7 workflows, 228 tests, 134 labelled eval items, 113 retrieval questions, 80 law chunks, 10,388 listings, 139,681 stop-time updates" width="100%">
 
 Every figure is counted in the repository named under it. No stars, no follower counts, no
 unverifiable totals.
@@ -149,15 +149,18 @@ unverifiable totals.
 
 ## Research and experimentation
 
-**Cross-Model Latent Memory Transfer**: `RESEARCH PROTOTYPE · PHASE 1 OF 6 · NO RESULTS YET`
+**Cross-Model Latent Memory Transfer**: `RESEARCH PROTOTYPE · SIX PHASES RUN · FIRST RESULTS`
 
 Can task-relevant information inside a small language model be extracted, compressed and used by a
-separate, stateless model, with the original text, KV cache and history discarded? Activation
-extraction and memory injection into a target model are implemented; the controlled dataset,
-baselines (zero-context, full-context, RAG, KV-cache transfer) and metrics (information retention
-ratio and compression ratio) are specified and not yet run. Open questions: how small the memory
-can get before performance drops, which layers transfer best, and whether a representation from one
-architecture decodes in another. Joint work with Anuj Dalvi.
+separate, stateless model, with the original text, KV cache and history discarded? All five
+baselines now have numbers on 40 held-out facts. Zero-context scores 0.00 and full-context 0.88, so
+the synthetic facts are genuinely not in the weights, and KV-cache transfer also scores 0.88, which
+is the honest ceiling for a compressed route. A 12 KiB latent memory (4 slots, 2.3x compression)
+scores 0.00 exact match but 0.23 `contains` on unseen facts and 0.68 on trained ones: the gold
+value is in the memory, and the frozen decoder will not put it first. The extraction layer matters
+more than anything else tested, with mid-stack activations at 0.78 `contains` against 0.23 at the
+final layer, and transfer into a different architecture (gpt2 → distilgpt2) was no harder than into
+an identical one. Joint work with Anuj Dalvi.
 
 [→ Repository](https://github.com/arjun05-tf/cross-model-latent-memory)
 
@@ -197,9 +200,10 @@ test listings; SHAP attribution, MLflow tracking and a PSI drift check over logg
 
 ## Currently building
 
+- **german-law-rag**: deployed, with claim-level evidence attribution awaiting labelled ground truth
 - **signalops-ai**: grounded outreach automation; latest work on the security-vendor ICP layer
-- **berlin-rent-predictor**: deployment of the portable model behind the live demo
-- **cross-model-latent-memory**: latent memory injection and the comparative baseline
+- **cross-model-latent-memory**: fixing the decoding interface, which is where the latent route loses
+- **bvg-delay-stream**: the 24 hour run that fills in throughput, latency and late-record rate
 
 ---
 
@@ -209,6 +213,6 @@ test listings; SHAP attribution, MLflow tracking and a PSI drift check over logg
 
 [LinkedIn](https://www.linkedin.com/in/arjun-vinod-patil-982266310) · [arjunpatil02814@gmail.com](mailto:arjunpatil02814@gmail.com)
 
-<sub>Diagrams are generated from <a href="assets/build_assets.py">assets/build_assets.py</a>. Activity snapshot taken 2026-10-05.</sub>
+<sub>Diagrams are generated from <a href="assets/build_assets.py">assets/build_assets.py</a>. Activity snapshot taken 2026-10-10.</sub>
 
 </div>

@@ -655,7 +655,7 @@ METRICS = [
     ("113", "RETRIEVAL EVAL QUESTIONS", "german-law-rag · 91 + 22 negatives"),
     ("80", "CITABLE LAW CHUNKS", "german-law-rag · Absatz level"),
     ("10,388", "LISTINGS MODELLED", "berlin-rent-predictor"),
-    ("82,892", "STOP-TIME UPDATES / SNAPSHOT", "bvg-delay-stream · live feed"),
+    ("139,681", "STOP-TIME UPDATES / SNAPSHOT", "bvg-delay-stream · live feed"),
 ]
 
 
@@ -691,20 +691,20 @@ def metrics() -> None:
 # ------------------------------------------------------------ activity strip
 
 PUSHES = [
+    ("german-law-rag", 0, B),
     ("signalops-ai", 0, A),
-    ("berlin-rent-predictor", 1, A),
-    ("bvg-delay-stream", 2, A),
-    ("cross-model-latent-memory", 4, B),
-    ("german-law-rag", 15, B),
+    ("bvg-delay-stream", 0, A),
+    ("berlin-rent-predictor", 0, A),
+    ("cross-model-latent-memory", 8, B),
 ]
 
 
 def activity() -> None:
     W, H = 1000, 230
     s = head(W, H, "Recent push activity",
-             "Five repositories ordered by last push, measured in days before 5 October 2026.")
+             "Five repositories ordered by last push, measured in days before 10 October 2026.")
     s += kicker(28, 34, "RECENT BUILD ACTIVITY")
-    s += label(W - 28, 34, "last push · as of 2026-10-05", 9.5, DIM, anchor="end", ls="0.1em")
+    s += label(W - 28, 34, "last push · as of 2026-10-10", 9.5, DIM, anchor="end", ls="0.1em")
 
     x0, bar_max = 250, 620
     for i, (repo, days, col) in enumerate(PUSHES):
